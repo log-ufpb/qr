@@ -25,7 +25,7 @@ Constraints \eqref{eq:subtourConstraintsTSP} ensure connectivity.
 Finally, constraints \eqref{eq:integralityConstraintsTSP} describe the domain of variables $x_{ij}$
 ```
 
-<img src="https://github.com/log-ufpb/qr/blob/main/latex/equations/eq1.png" width="70%" height="70%">
+<img src="https://github.com/log-ufpb/qr/blob/main/docs/src/latex/equations/eq1.png" width="70%" height="70%">
 
 
 Much of how formulations are actually structured is subject to one's liking. In the previous example, the `&` operator was used to [align equations](https://www.overleaf.com/learn/latex/Aligning_equations_with_amsmath) to the left. The following snippet shows an alternative way to present the same formulation, in such a way that expressions are more evenly distributed, and the objective function is centered. 
@@ -44,7 +44,7 @@ Constraints \eqref{eq:degreeConstraintsTSP} force all vertices to have degree 2.
 Constraints \eqref{eq:subtourConstraintsTSP} ensure connectivity. 
 Finally, constraints \eqref{eq:integralityConstraintsTSP} describe the domain of variables $x_{ij}$
 ```
-<img src="https://github.com/log-ufpb/qr/blob/main/latex/equations/eq2.png" width="70%" height="70%">
+<img src="https://github.com/log-ufpb/qr/blob/main/docs/src/latex/equations/eq2.png" width="70%" height="70%">
 
 
 Further yet, one may opt to use specialized packages. One such package is `optidef`, which allows us to write the formulation for optimization problems as in the example below. However, mastering default commands such as `align{}` and `equation{}` is highly recommended, as they give us much more control.
@@ -63,7 +63,7 @@ Further yet, one may opt to use specialized packages. One such package is `optid
 \end{maxi}
 ```
 
-<img src="https://github.com/log-ufpb/qr/blob/main/latex/equations/eq5.png" width="70%" height="70%">
+<img src="https://github.com/log-ufpb/qr/blob/main/docs/src/latex/equations/eq5.png" width="70%" height="70%">
 
 ## Tips
 * If your equation is too big and doesn't fit the line width, split it with [`split{}`](https://tex.stackexchange.com/questions/358608/split-equations-inside-the-align-environment). You can also try `multline{}`.
