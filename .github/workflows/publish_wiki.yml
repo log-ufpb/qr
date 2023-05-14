@@ -19,7 +19,7 @@ jobs:
           cd tmp_wiki
           git clone https://${{ secrets.REGISTRY_TOKEN }}@github.com/$GITHUB_REPOSITORY.wiki.git
           git config --global user.email "bruno.p.bruck@gmail.com"
-          git config --global user.name "log-ufpb"
+          git config --global user.name "LOG UFPB"
 
       - name: Synchronize differences between new docs & wiki docs
         run: rsync -av --delete docs/ tmp_wiki/${{ github.event.repository.name }}.wiki --exclude .git
