@@ -1,0 +1,40 @@
+name: "Publish wiki"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish_wiki:
+    name: Submit docs to wiki
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Pull wiki content to tmp_wiki
+        run: |
+          mkdir tmp_wiki
+          cd tmp_wiki
+          git clone https://${{ secrets.REGISTRY_TOKEN }}@github.com/$GITHUB_REPOSITORY.wiki.git
+          git config --global user.email "bruno.p.bruck@gmail.com"
+          git config --global user.name "LOG UFPB"
+
+      - name: Synchronize differences between new docs & wiki docs
+        run: rsync -av --delete docs/ tmp_wiki/${{ github.event.repository.name }}.wiki --exclude .git
+
+      - name: Push new content to wiki
+        run: |
+          cd tmp_wiki/${{ github.event.repository.name }}.wiki
+          git add .
+          if git diff-index --quiet HEAD --; then
+            echo "No updates to the wiki"
+          else
+            git commit -m "[Copy] ${{ github.event.head_commit.message }}"
+            git push origin master
+          fi
+
+      - name: Delete tmp_wiki
+        run: |
+          rm -rf tmp_wiki
