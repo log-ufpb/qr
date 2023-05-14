@@ -17,7 +17,7 @@ jobs:
         run: |
           mkdir tmp_wiki
           cd tmp_wiki
-          git clone https://${{ secrets.REGISTRY_TOKEN }}@github.com/log-ufpb/qr.wiki.git
+          git clone https://${{ secrets.REGISTRY_TOKEN }}@github.com/$GITHUB_REPOSITORY.wiki.git
           git config --global user.email "yuretalis@gmail.com"
           git config --global user.name "Yure Rocha"
 
