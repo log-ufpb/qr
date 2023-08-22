@@ -1,4 +1,6 @@
-![LOG logo](https://github.com/log-ufpb/qr/blob/main/logos/log.png)
+<img src="https://github.com/log-ufpb/qr/blob/main/logos/log.png"
+    alt="LOG logo"
+    style="width:30%; height:30%; align:center">
 
 1. Linux
 2. LaTeX
