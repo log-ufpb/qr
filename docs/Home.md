@@ -1,3 +1,5 @@
+!(LOG logo)[https://github.com/log-ufpb/qr/blob/main/logos/log.png]
+
 1. Linux
 2. LaTeX
     * [Algorithms](algorithms)
