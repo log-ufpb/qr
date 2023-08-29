@@ -21,5 +21,5 @@
 ## Statistical analysis
 * [Significance test](significance-test)
 ## Recommended material
-* [Otimização combinatória (PDF)](kit.logq.dev)
+* [Otimização combinatória (PDF)](http://kit.logq.dev)
 * [Inteligência computacional para otimização (PDF)](http://www.decom.ufop.br/prof/marcone/Disciplinas/InteligenciaComputacional/InteligenciaComputacional.pdf)
