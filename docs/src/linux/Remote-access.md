@@ -1,6 +1,6 @@
 # ssh
 
-**ssh** is a Linux tool which allows you to remotely access a computer, connected to the Internet, via its internet protocol (IP) address. To do so, you will need a command line tool (CLI), a user account on the remote computer and its IP address, and remote access privileges.
+**ssh** is a Linux tool which allows you to remotely access a computer, connected to the Internet, via its _internet protocol_ (IP) address. To do so, you will need a _command line tool_ (CLI), a user account on the remote computer and its IP address, and remote access privileges.
 
 ```
 ssh user_account@ip_address
@@ -29,7 +29,7 @@ example: scp user@111.1.111.111:/home/file.txt ~/destination/
 
 ## How to copy files from your computer to a remote computer?
 
-To copy files from your computer to a remote one you will need an account on the remote computer (toghether with its IP address), the path where the files are located on your computer, and the path where you want the files to be copied to on the remote computer.
+To copy files from your computer to a remote one you will need an account on the remote computer (together with its IP address), the path where the files are located on your computer, and the path where you want the files to be copied to on the remote computer.
 
 The command to copy a file from your computer to a remotely located one is:
 ```
