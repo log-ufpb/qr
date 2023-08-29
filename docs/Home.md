@@ -15,11 +15,11 @@
 ## Regular expressions
 * [Regex](regex)
 ## Git and Github
-* [Git installation and basic commmands](git.md)
+* [Git installation and basic commmands](git)
 * [Git cheat sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
-* [Github authentication](github.md)
+* [Github authentication](github)
 ## Statistical analysis
 * [Significance test](significance-test)
 ## Recommended material
-* [Otimização combinatória (PDF)](kit.logq.dev)
+* [Otimização combinatória (PDF)](http://kit.logq.dev)
 * [Inteligência computacional para otimização (PDF)](http://www.decom.ufop.br/prof/marcone/Disciplinas/InteligenciaComputacional/InteligenciaComputacional.pdf)
