@@ -15,9 +15,9 @@
 ## Regular expressions
 * [Regex](regex)
 ## Git and Github
-* [Git installation and basic commmands](git.md)
+* [Git installation and basic commmands](git)
 * [Git cheat sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
-* [Github authentication](github.md)
+* [Github authentication](github)
 ## Statistical analysis
 * [Significance test](significance-test)
 ## Recommended material
