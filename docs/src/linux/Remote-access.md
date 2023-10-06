@@ -1,6 +1,6 @@
-# ssh
+# Remote access
 
-**ssh** is a Linux tool which allows you to remotely access a computer, connected to the Internet, via its _internet protocol_ (IP) address. To do so, you will need a command-line interface (e.g. Linux Bash Shell, on Linux), a user account on the remote computer and its IP address, and remote access privileges.
+The _secure shell_ (SSH) is a protocol for secure remote login and other secure network operations over insecure networks, as suggested by the [RFC 4251](https://datatracker.ietf.org/doc/html/rfc4251). ssh is an open-source implementation of such protocol. To securely connect and log into a destination machine using ssh, you will need a command-line interface (e.g. Linux Bash Shell, on Linux), a user account on the remote computer and the hostname or _internet protocol_ (IP) address of such host.
 
 ```
 ssh user_account@ip_address
@@ -13,25 +13,23 @@ ssh -p PORT user_account@ip_address
 example: ssh -p 8022 user@111.1.111.111 
 ```
 
-# scp
+# File transfer
 
-If you need to copy files from a remote computer to your computer or vice versa, you can use the command-line tool **scp**.
+If you need to copy files from a remote host to your computer or vice versa, you can use the command-line tool scp.
 
-## How to copy files from a remote computer to your computer?
+## How to copy files from a remote computer to your machine?
 
-You will need a user account on the remote computer, its IP address, the location of the file on the remote computer, and the path where you want to save the copied file.
+You will need a user account on the remote host, the hostname or IP address of the machine, the location of the file, and the path where you want to save the copied file.
 
-The command to copy a file from a remote computer is:
 ```
 scp user_account@ip_address:source_path_to_file destination_path
 example: scp user@111.1.111.111:/home/file.txt ~/destination/ 
 ```
 
-## How to copy files from your computer to a remote computer?
+## How to copy files from your machine to a remote host?
 
-To copy files from your computer to a remote one you will need an account on the remote computer (together with its IP address), the path where the files are located on your computer, and the path where you want the files to be copied to on the remote computer.
+To copy files from your computer to a remote one you will need an account on the remote machine, the hostname, the path where the file is located on your computer, and the path where you want the file to be copied to on the remote host.
 
-The command to copy a file from your computer to a remotely located one is:
 ```
 scp /source_path_to_file user_account@ip_address:/destination_path
 example: scp ~/file.txt  user@111.1.111.111:~/destination/ 
