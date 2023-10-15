@@ -23,3 +23,5 @@
 ## Recommended material
 * [Otimização combinatória (PDF)](http://kit.logq.dev)
 * [Inteligência computacional para otimização (PDF)](http://www.decom.ufop.br/prof/marcone/Disciplinas/InteligenciaComputacional/InteligenciaComputacional.pdf)
+## Manuscript writing and submission
+* [Submitting a paper to an Elsevier journal](elsevier)
