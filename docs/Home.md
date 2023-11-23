@@ -27,4 +27,4 @@
 ## Manuscript writing and submission
 * [Submitting a paper to an Elsevier journal](elsevier)
 ## Hacks
-* [How to access academic portals from outside UFPB's network domain](Access-academic-portals)
+* [How to access academic portals from outside UFPB's network domain](access-academic-portals)
