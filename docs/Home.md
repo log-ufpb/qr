@@ -8,7 +8,8 @@
 * [Useful algorithms](useful-algorithms)
 * [Common errors](common-errors)
 ## Gurobi
-* [Academic named-user license](https://www.gurobi.com/features/academic-named-user-license/)
+* [Shared installation](shared-installation)
+* [Free Academic license](https://www.gurobi.com/wp-content/plugins/hd_documentations/documentation/10.0/quickstart_linux.pdf#page=10)
 * [How to build Gurobi C/C++ projects with CMake](https://support.gurobi.com/hc/en-us/articles/360039499751-How-do-I-use-CMake-to-build-Gurobi-C-C-projects-)
 * [How to resolve "undefined reference" when linking Gurobi in C++](https://support.gurobi.com/hc/en-us/articles/360039093112)
 * [Example of a project with Gurobi C++](https://github.com/Pigzaum/bc_cvrp)
@@ -24,4 +25,6 @@
 * [Otimização combinatória (PDF)](http://kit.logq.dev)
 * [Inteligência computacional para otimização (PDF)](http://www.decom.ufop.br/prof/marcone/Disciplinas/InteligenciaComputacional/InteligenciaComputacional.pdf)
 ## Manuscript writing and submission
-* [Submitting a paper to an Elsevier journal](elsevier) 
+* [Submitting a paper to an Elsevier journal](elsevier)
+## Hacks
+* [How to access academic portals from outside UFPB's network domain](Access-academic-portals)
