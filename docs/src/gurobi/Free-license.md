@@ -2,7 +2,7 @@
 
 To retrieve a Gurobi _named-user academic_ license, please refer to the [quick start](https://www.gurobi.com/wp-content/plugins/hd_documentations/documentation/10.0/quickstart_linux.pdf#page=10) guide. This type of license is designed for a single person, on a single machine.
 
-You must be connected to an academic domain to request a new _named-user academic_ license, otherwise, an `Academic Domain Error` will be issued. In the case of UFPB, a workaround to this issue can be found on [how to access academic portals from outside UFPB's network domain](../hacks/Access-academic-portals.md).
+You must be connected to an academic domain to request a new _named-user academic_ license, otherwise, an `Academic Domain Error` will be issued. In the case of UFPB, a workaround to this issue can be found on [how to access academic portals from outside UFPB's network domain](access-academic-portals).
 
 ## Setting up a license
 
