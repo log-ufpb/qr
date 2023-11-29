@@ -9,7 +9,7 @@
 * [Common errors](common-errors)
 ## Gurobi
 * [Shared installation](shared-installation)
-* [Free Academic license](https://www.gurobi.com/wp-content/plugins/hd_documentations/documentation/10.0/quickstart_linux.pdf#page=10)
+* [Free Academic license](free-license)
 * [How to build Gurobi C/C++ projects with CMake](https://support.gurobi.com/hc/en-us/articles/360039499751-How-do-I-use-CMake-to-build-Gurobi-C-C-projects-)
 * [How to resolve "undefined reference" when linking Gurobi in C++](https://support.gurobi.com/hc/en-us/articles/360039093112)
 * [Example of a project with Gurobi C++](https://github.com/Pigzaum/bc_cvrp)
