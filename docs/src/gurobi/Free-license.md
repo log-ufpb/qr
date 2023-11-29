@@ -8,12 +8,12 @@ You must be connected to an academic domain to request a new _named-user academi
 
 Assuming the license has been downloaded to the `home` directory, i.e., `home/<user>`.
 
-1. Rename the license file.
+1\. Rename the license file.
 ```
 $ mv gurobi.lic $HOSTNAME
 ```
 
-1. Add the following line to the `.bashrc` file.
+2\. Add the following line to the `.bashrc` file.
 ```
 export GRB_LICENSE_FILE="/home/<user>/$HOSTNAME"
 ```
