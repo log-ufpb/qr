@@ -1,5 +1,5 @@
 ## Linux
-* [Remote access and file transfer](remote-access)
+* [Secure Shell (SSH)](ssh)
 ## LaTeX
 * [Algorithms](algorithms)
 * [Equations](equations)
