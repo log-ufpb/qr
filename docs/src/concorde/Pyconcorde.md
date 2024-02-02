@@ -69,7 +69,7 @@ By default, the solver prints detailed information during execution. To disable 
 solution = solver.solve(verbose=False)
 ```
 
-The solver returns an object containing data on execution, including a boolean indicating successful solving, runtime duration, and a boolean flag indicating if a time bound was reached and the computed tour.
+After execution, the solver returns an object containing, among others, the runtime and the computed tour, as well as flags indicating if the solve was successful and if the time bound was reached.
 
 ```
 def print_solution(solution):
