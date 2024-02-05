@@ -2,7 +2,7 @@ The main purpose of the [preview](https://linorg.usp.br/CTAN/macros/latex/contri
 ```latex
 \usepackage[active, tightpage]{preview}
 ```
-, where options `active` and `tightpage` are selected to activate the package, and to produce separate dimensions for every page, respectively. 
+where options `active` and `tightpage` are specified to activate the package, and to produce separate dimensions for every page, respectively. 
 
 The macro `\PreviewEnvironment` sets which environments must produce preview images.
 ```latex
