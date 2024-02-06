@@ -1,0 +1,1 @@
+To install [Python-MIP](https://www.python-mip.com/), use the command `pip install mip`. It is important to note that this command may not work on the first attempt, so try it again, and hopefully, it will succeed. Find more information about the installation process in the [Python-MIP documentation](https://python-mip.readthedocs.io/en/latest/install.html). 
