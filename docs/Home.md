@@ -31,3 +31,8 @@
 * [How to access academic portals from outside UFPB's network domain](access-academic-portals)
 ## Concorde
 * [Python wrapper for the Concorde solver (PyConcorde)](pyconcorde)
+## Python-MIP
+* [Introduction](https://python-mip.readthedocs.io/en/latest/intro.html)
+* [Installation](installation)
+* [Quick start](https://python-mip.readthedocs.io/en/latest/quickstart.html)
+* [Modelling examples](https://python-mip.readthedocs.io/en/latest/examples.html)
