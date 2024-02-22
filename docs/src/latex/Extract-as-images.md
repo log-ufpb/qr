@@ -1,4 +1,4 @@
-The main purpose of the [preview](https://linorg.usp.br/CTAN/macros/latex/contrib/preview/preview.pdf) package is to extract certain environments as graphics. To use it, the following line must be added to the preamble of the document.
+The main purpose of the [preview](https://linorg.usp.br/CTAN/macros/latex/contrib/preview/preview.pdf) package is to extract environments as images. To use it, the following line must be added to the preamble of the document.
 ```latex
 \usepackage[active, tightpage]{preview}
 ```
