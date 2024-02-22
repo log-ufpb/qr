@@ -1,5 +1,3 @@
-# Erros comuns em C++
+## Loop infinito na busca local: problema de imprecisão
 
-### Loop infinito na busca local: problema de imprecisão
-
-### Soluções com custos inesperados: problema de inconsistência entre movimento avaliado e movimento aplicado
+## Soluções com custos inesperados: problema de inconsistência entre movimento avaliado e movimento aplicado
