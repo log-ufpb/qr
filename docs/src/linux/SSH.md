@@ -1,5 +1,3 @@
-# SSH
-
 The _Secure Shell_ (SSH) protocol, as defined in [RFC 4251](https://datatracker.ietf.org/doc/html/rfc4251), is a powerful tool for conducting secure remote logins and various other secure network operations, especially over potentially insecure networks. SSH is an open-source implementation of this protocol.
 
 A cornerstone of SSH is key-based authentication, offering a significantly more secure and efficient approach compared to traditional password-based authentication. Key-based authentication utilizes a pair of cryptographic keys: a public key (used by remote servers to verify your identity) and a private key (used to prove your identity and should never be shared).

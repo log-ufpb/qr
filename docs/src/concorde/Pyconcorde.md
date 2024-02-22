@@ -1,5 +1,3 @@
-# PyConcorde
-
 ## Concorde Solver
 
 The [Concorde solver](https://www.math.uwaterloo.ca/tsp/concorde.html) is a state-of-the-art algorithm for efficiently solving the symmetric [Travelling Salesman Problem (TSP)](https://en.wikipedia.org/wiki/Travelling_salesman_problem).

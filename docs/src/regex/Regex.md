@@ -1,12 +1,12 @@
-# What is it?
+## What is it?
 A **Regex** (short for _regular expression_) is a sequence of characters that specifies another sequence, pattern, or category of characters in a text.
 
 Regular expressions are widely used in programming and text processing, appearing in many applications such as internet search engines, text and code editors, lexers, linters, parsers, and more.
 
-# How to test it?
+## How to test it?
 To test regular expressions, you can use online tools such as [Replit](https://replit.com/languages/julia) or [regex101](https://regex101.com/). Replit allows you to run code online, while regex101 provides a visual interface to test regular expressions on sample text.
 
-# When to use it?
+## When to use it?
 A programmer has likely had to scan through text to find or extract a sequence or pattern of information, or to process text input that may be in an invalid format. These tasks often involve gathering data as part of a larger process, so being able to correctly do them is essential. The problem comes from the scope of the task - if there are more requirements to be analyzed, it can greatly increase the complexity of it.
 
 Let's give a more detailed description of the mentioned tasks before:

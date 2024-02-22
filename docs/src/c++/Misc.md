@@ -1,5 +1,3 @@
-# Misc
+## Makefile
 
-### Makefile
-
-### Leitor de instâncias
+## Leitor de instâncias

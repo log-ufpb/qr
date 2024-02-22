@@ -1,7 +1,5 @@
-# Algoritmos úteis
+## Depth-first search
 
-### Depth-first search
+## Breadth-first search
 
-### Breadth-first search
-
-### Minimum spanning tree (Kruskal)
+## Minimum spanning tree (Kruskal)

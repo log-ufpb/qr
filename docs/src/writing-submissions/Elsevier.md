@@ -1,5 +1,3 @@
-# Submitting a paper to an Elsevier journal
-
 ## New submissions
 
 In a new submission the manuscript can be uploaded as a single PDF file or Word document. Additional source files are not mandatory, but can be provided at the initial submission. It's important to note that individual figure files larger than 10 MB must be uploaded separately.

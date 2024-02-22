@@ -1,4 +1,4 @@
-# Vector:
+## Vector
 
 **They store a group of elements, sequentially.**
 
@@ -14,7 +14,7 @@
 
 ***
 
-# Priority queues 
+## Priority queues 
 
 **They store a group of elements sequentially, and efficiently obtain its maximum or minimum value.**
 
@@ -27,7 +27,7 @@
 
 ***
   
-# Set
+## Set
 
 **They efficiently store a group of non-repeating elements.**
 
@@ -40,7 +40,7 @@
 
 ***
   
-# Map
+## Map
 
 **They store elements of type `<key, value>` efficiently avoiding key repetition (repetition of values is possible).**
 
@@ -53,7 +53,7 @@
 
 ***
 
-# Disjoint Set Union
+## Disjoint Set Union
 
 **This data structure stores a collection of sets without element overlap. It allows for efficient operations to create and join sets, as well as checking if two elements are part of the same set. Disjoint Set Union is used in efficient implementations of the Kruskal algorithm for finding the Minimum Spanning Tree of a graph.**
 
@@ -191,7 +191,7 @@ int main(){
 
 It is possible to use `unordered_map` instead of `vector` for a more general implementation.
 
-# Graphs (adjacency list)
+## Graphs (adjacency list)
 
 **They represent sparse graphs when it is necessary to know which arcs touch a certain vertex. This data structure is efficient in memory spaces when compared to other implementations (e.g., adjacency matrix). Moreover, they can be more efficient, time-wise, for algorithms such as breadth-first search and depth-first search.**
 
@@ -236,7 +236,7 @@ int main(){
 
 ***
 
-# Graphs (adjacency matrix)
+## Graphs (adjacency matrix)
 
 **They represent dense graphs when it is necessary to know if there is an arc between any two vertices or its cost in weighted graphs.**
 
