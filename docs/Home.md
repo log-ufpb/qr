@@ -3,7 +3,7 @@
 ## LaTeX
 * [Algorithms](algorithms)
 * [Equations](equations)
-* [Hot to extract environments as PDF graphics](extract-as-pdf)
+* [How to extract environments as images](extract-as-images)
 ## C++
 * [Data structures](data-structures)
 * [Useful algorithms](useful-algorithms)
