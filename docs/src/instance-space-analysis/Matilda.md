@@ -22,6 +22,8 @@ Making a legible projection of the instances into the 2D space is a challenging 
 
 Matilda is an intuitive tool. Using the online version is recommended over downloading the code locally, as the former is much simpler.
 
+For the input data, follow the instructions on their [GitHub repository](https://github.com/andremun/InstanceSpace?tab=readme-ov-file#the-metadata-file).
+
 There is a complete tutorial available [here](https://matilda.unimelb.edu.au/matilda/matildadata/tutorials/matilda-technical-details.mp4). Start watching at time 33:32 if you want to use the online version.
 
 ## References
