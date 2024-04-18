@@ -3,8 +3,9 @@
 ## LaTeX
 * [Algorithms](algorithms)
 * [Equations](equations)
-* [How to extract environments as images](extract-as-images)
 * [Flowcharts](https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ%3A_A_Tutorial_for_Beginners_(Part_3)%E2%80%94Creating_Flowcharts)
+* [How to extract environments as images](extract-as-images)
+
 ## C++
 * [Data structures](data-structures)
 * [Useful algorithms](useful-algorithms)
