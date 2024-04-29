@@ -36,3 +36,5 @@
 * [Installation](installation)
 * [Quick start](https://python-mip.readthedocs.io/en/latest/quickstart.html)
 * [Modelling examples](https://python-mip.readthedocs.io/en/latest/examples.html)
+## Mathematics
+* [Oxford Mathematics](oxford-math)
