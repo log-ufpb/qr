@@ -1,4 +1,4 @@
-The Oxford Mathematics provides a YouTube playlist of 100 math classes. You can check out the full playlist [here](https://www.youtube.com/watch?v=nYM0gaPU-8g&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=3). 
+Oxford Mathematics offers a collection of math classes on YouTube. You can explore the entire playlist [here](https://www.youtube.com/watch?v=nYM0gaPU-8g&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=3). 
 
 ## Calculus
 
@@ -34,20 +34,46 @@ The Oxford Mathematics provides a YouTube playlist of 100 math classes. You can 
 
 ## Set Theory
 
-- TODO
+- [What is Set Theory and what is it for?](https://www.youtube.com/watch?v=g7zyXk0XJt4&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=86&pp=iAQB)
+
+- [Russell's Paradox](https://www.youtube.com/watch?v=gxm1Ur_Be0s&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=87&pp=iAQB)
+
+- [The first few axioms](https://www.youtube.com/watch?v=qrltuEzDhxI&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=88&pp=iAQB)
+
+- [Classes, sets and proper classes](https://www.youtube.com/watch?v=4cPGKh4xubI&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=89&pp=iAQB)
 
 ## Linear Algebra
 
-- TODO
+- [Linear Algebra I: Systems of linear equations](https://www.youtube.com/watch?v=MieZJ0bxv7k&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=30&pp=iAQB)
 
-## Differential Equations I
+- [Linear Algebra I: Matrix algebra](https://www.youtube.com/watch?v=Yj0rMy6MBMk&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=31&pp=iAQB)
 
-- TODO
+- [Linear Algebra II](https://www.youtube.com/watch?v=pQhVDRojC1U&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=32&pp=iAQB)
 
-## Differential Equantions II
+- [Linear Algebra II - Eigenvectors & eigenvalues](https://www.youtube.com/watch?v=100Im_72xl4&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=33&pp=iAQB)
 
-- TODO
+## Differential Equations
+
+- [Differential equations I](https://www.youtube.com/watch?v=0mGAh2GlD6I&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=50&pp=iAQB)
+
+- [Differential Equations I - Maximum Principle](https://www.youtube.com/watch?v=fsy6UNZei0k&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=51&pp=iAQB)
+
+- [Differential Equations II](https://www.youtube.com/watch?v=8YV_VjtxaXo&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=52&pp=iAQB)
 
 ## Networks 
 
-- TODO
+- [Lecture 1](https://www.youtube.com/watch?v=TQKgB0RnjeY&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=94&pp=iAQB)
+
+- [Lecture 2](https://www.youtube.com/watch?v=zF5nVMG-Big&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=95&pp=iAQB)
+
+- [Lecture 3](https://www.youtube.com/watch?v=cq-rAUwQoaM&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=96&pp=iAQB)
+
+- [Lecture 4](https://www.youtube.com/watch?v=W_A6NbqpTW8&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=97&pp=iAQB)
+
+- [Lecture 5](https://www.youtube.com/watch?v=7p9ImBpxlG8&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=98&pp=iAQB)
+
+- [Lecture 6](https://www.youtube.com/watch?v=cctHyGe5D_k&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=99&pp=iAQB)
+
+- [Lecture 7](https://www.youtube.com/watch?v=---gzhcMEHA&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=100&pp=iAQB)
+
+- [Lecture 8](https://www.youtube.com/watch?v=67xLOcA5Qbs&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=101&pp=iAQB)
