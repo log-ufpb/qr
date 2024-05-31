@@ -41,4 +41,5 @@
 ## Instance Space Analysis
 * [Matilda](matilda)
 ## Machine Learning
+* [Introduction to Machine Learning](https://cs.uwaterloo.ca/~y328yu/mynotes/intro2ml.pdf)
 * [Backpropagation Algorithm](https://youtu.be/SmZmBKc7Lrs?si=VtVCZjSIv6f2O5Y0)
