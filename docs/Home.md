@@ -38,3 +38,5 @@
 * [Installation](installation)
 * [Quick start](https://python-mip.readthedocs.io/en/latest/quickstart.html)
 * [Modelling examples](https://python-mip.readthedocs.io/en/latest/examples.html)
+## Instance Space Analysis
+* [Matilda](matilda)
