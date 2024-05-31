@@ -40,3 +40,5 @@
 * [Modelling examples](https://python-mip.readthedocs.io/en/latest/examples.html)
 ## Instance Space Analysis
 * [Matilda](matilda)
+## Machine Learning
+* [Backpropagation Algorithm](https://youtu.be/SmZmBKc7Lrs?si=VtVCZjSIv6f2O5Y0)
