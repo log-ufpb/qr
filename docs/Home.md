@@ -42,4 +42,5 @@
 * [Matilda](matilda)
 ## Machine Learning
 * [Introduction to Machine Learning](https://cs.uwaterloo.ca/~y328yu/mynotes/intro2ml.pdf)
+* [Markov Chains](https://youtube.com/playlist?list=PLM8wYQRetTxBkdvBtz-gw8b9lcVkdXQKV&si=O35iYRGEe8cwBgQ4)
 * [Backpropagation Algorithm](https://youtu.be/SmZmBKc7Lrs?si=VtVCZjSIv6f2O5Y0)
