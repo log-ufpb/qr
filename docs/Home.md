@@ -52,6 +52,9 @@
 ## Mathematics
 * [Oxford Mathematics](oxford-math)
 
+## Probability and Statistics
+* [Linear Regression](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/wics.1198)
+
 ## Instance Space Analysis
 * [Matilda](matilda)
 
