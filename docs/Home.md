@@ -6,6 +6,7 @@
 * [Equations](equations)
 * [Flowcharts](https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ%3A_A_Tutorial_for_Beginners_(Part_3)%E2%80%94Creating_Flowcharts)
 * [How to extract environments as images](extract-as-images)
+* [References with bibtex](https://www.overleaf.com/learn/latex/Questions/How_to_include_a_bibliography_using_bibtex)
 
 ## C++
 * [Data structures](data-structures)
