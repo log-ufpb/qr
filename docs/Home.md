@@ -9,9 +9,8 @@
 * [References with bibtex](https://www.overleaf.com/learn/latex/Questions/How_to_include_a_bibliography_using_bibtex)
 
 ## C++
+* [Basic project structure](project-structure)
 * [Data structures](data-structures)
-* [Useful algorithms](useful-algorithms)
-* [Common errors](common-errors)
 
 ## Gurobi
 * [Shared installation](shared-installation)
