@@ -51,7 +51,7 @@
 
 ## Mathematics
 * [Oxford Mathematics](oxford-math)
-* [Introduction to Mathemtical Proofs](https://www.math.utoronto.ca/~alfonso/proofs/fuchs.pdf)
+* [Introduction to Mathematical Proofs](https://www.math.utoronto.ca/~alfonso/proofs/fuchs.pdf)
 
 ## Probability and Statistics
 * [Linear Regression](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/wics.1198)
