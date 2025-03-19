@@ -1,0 +1,1 @@
+- [nlohmann/json](https://github.com/nlohmann/json):  Popular, header-only C++ library for working with JSON. It provides an intuitive, STL-like API for parsing, serializing, and manipulating JSON data.
