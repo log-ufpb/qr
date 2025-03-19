@@ -11,6 +11,7 @@
 ## C++
 * [Basic project structure](project-structure)
 * [Data structures](data-structures)
+* [Libraries](Libraries)
 * [Reference materials](cpp-reference-materials)
 ## Gurobi
 * [Shared installation](shared-installation)
