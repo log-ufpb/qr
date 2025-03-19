@@ -64,3 +64,4 @@
 * [Introduction to Machine Learning](https://cs.uwaterloo.ca/~y328yu/mynotes/intro2ml.pdf)
 * [Markov Chains](https://youtube.com/playlist?list=PLM8wYQRetTxBkdvBtz-gw8b9lcVkdXQKV&si=O35iYRGEe8cwBgQ4)
 * [Backpropagation Algorithm](https://youtu.be/SmZmBKc7Lrs?si=VtVCZjSIv6f2O5Y0)
+* [The Mathematics of Reinforcement Learning](https://www.linkedin.com/posts/michael-erlihson-8208616_the-mathematics-of-reinforcement-learning-ugcPost-7294471682969247744-k7Du?utm_source=share&utm_medium=member_desktop)
