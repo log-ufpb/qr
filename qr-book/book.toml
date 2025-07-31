@@ -1,0 +1,8 @@
+[book]
+authors = ["Guilherme Dantas"]
+language = "en"
+src = "src"
+title = "Quick Reference"
+
+[output.html]
+mathjax-support = true
