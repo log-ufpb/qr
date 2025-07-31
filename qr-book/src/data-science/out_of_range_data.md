@@ -27,7 +27,6 @@ Only drop rows when a **small proportion** (e.g., < 5%) of your dataset contains
 df = df[df['age'] <= 100]  # Remove entries with age > 100
 ```
 
----
 
 ### 2. Setting Custom Minimums and Maximums (Capping or Clipping)
 
@@ -49,7 +48,6 @@ Cap values at predefined minimum and maximum thresholds.
 df['income'] = df['income'].clip(lower=0, upper=200_000)
 ```
 
----
 
 ### 3. Treat as Missing and Impute
 
@@ -72,7 +70,6 @@ df.loc[df['temperature'] < -50, 'temperature'] = np.nan
 df['temperature'].fillna(df['temperature'].mean(), inplace=True)
 ```
 
----
 
 ### 4. Setting Custom Values Based on Business Rules
 
@@ -95,7 +92,6 @@ Replace out-of-range values with specific values that reflect domain-specific as
 df.loc[df['production'] < 0, 'production'] = 0
 ```
 
----
 
 ### 5. Binning or Categorization
 
@@ -117,7 +113,6 @@ Convert continuous out-of-range values into categorical bins.
 df['age_group'] = pd.cut(df['age'], bins=[0, 18, 65, 100], labels=['child', 'adult', 'senior'])
 ```
 
----
 
 ### 6. Log or Other Transformations
 

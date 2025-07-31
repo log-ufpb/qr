@@ -29,6 +29,7 @@
 - [Data Science](./data-science/Chapter.md)
   - [Datasets](./data-science/datasets/datasets.md)
   - [Out of Range Data*](./data-science/out_of_range_data.md)
+  - [Duplicate Values*](./data-science/duplicate-values.md)
   - [Statistics](data-science/statistics/statistics.md)
     - [Significance test](data-science/statistics/Significance-test.md)
 
