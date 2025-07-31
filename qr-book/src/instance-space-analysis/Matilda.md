@@ -6,15 +6,15 @@ According to Smith-Miles and Muñoz (2023),
 
 An ISA is capable of generating a plot of instances based on the projection of various features into a 2D space. It may be necessary to analyze multiple graphs simultaneously in order to obtain meaningful conclusions when interpreting an ISA. For example, the following plot suggests that the analyzed algorithm performs worse for the instances projected in the lower right half of the 2D space, as the gap is higher in that section.
 
-<img src="https://github.com/log-ufpb/qr/blob/main/docs/src/instance-space-analysis/graphs/performance-h.png" width="70%" height="70%">
+<img src="./graphs/performance-h.png" width="70%" height="70%">
 
 Concurrently, the following plot shows the value of the feature `max-utilization` in each instance. By comparing both graphs, we can infer a positive correlation tendency between the feature `max-utilization` and the instance difficulty. In other words, the higher the `max-utilization`, the harder the instance tends to be for the analyzed algorithm to solve.
 
-<img src="https://github.com/log-ufpb/qr/blob/main/docs/src/instance-space-analysis/graphs/feature-max-utilization.png" width="70%" height="70%">
+<img src="./graphs/feature-max-utilization.png" width="70%" height="70%">
 
 Finally, some algorithms perform better in certain instance sets, and an ISA is also capable of providing this valuable insight. As already observed, the algorithm `H` performs well in instances with a low `max-utilization`. However, with the increase of `max-utilization`, `F1_i` becomes the best choice.
 
-<img src="https://github.com/log-ufpb/qr/blob/main/docs/src/instance-space-analysis/graphs/SVM-Selection.png" width="70%" height="70%">
+<img src="./graphs/SVM-Selection.png" width="70%" height="70%">
 
 Making a legible projection of the instances into the 2D space is a challenging task since each instance is represented by a vector of features whose length is usually greater than 2. Fortunately, the Melbourne Algorithm Test Instance Library with Data Analytics (Matilda) takes care of everything.
 

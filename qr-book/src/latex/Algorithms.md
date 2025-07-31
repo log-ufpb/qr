@@ -35,7 +35,7 @@ Algorithm \ref{alg:bubblesort} describes an implementaiton of Bubble Sort.
 Lines \eqref{line:bubblefor1} and \eqref{line:bubblefor2} iterate through all pairs of elements in $A'$. 
 Line \eqref{line:bubbleif} checks if $A'[i]$ is greater than $A'[i+1]$, in which case these elements are swapped in lines \eqref{line:swap1}--\eqref{line:swap2}.
 ```
-<img src="https://github.com/log-ufpb/qr/blob/main/docs/src/latex/algorithms/eq6.png" width="70%" height="70%">
+<img src="./algorithms/eq6.png" width="70%" height="70%">
 
 In case multiple procedures or functions are used and defined in the same pseudocode, use the `\SetFwFunction` and `\SetKwProg` commands. The former creates a macro for a function that may be called multiple times through the code. The latter is used if one wishes to create a block of code for each procedure. Both commands were used in the following snippet.
 
@@ -71,7 +71,7 @@ In case multiple procedures or functions are used and defined in the same pseudo
 \end{algorithm}
 ```
 
-<img src="https://github.com/log-ufpb/qr/blob/main/docs/src/latex/algorithms/eq7.png" width="70%" height="70%">
+<img src="./algorithms/eq7.png" width="70%" height="70%">
 
 ## Real code
 
@@ -111,6 +111,6 @@ int main() {
 }
 \end{lstlisting}
 ```
-<img src="https://github.com/log-ufpb/qr/blob/main/docs/src/latex/algorithms/eq8.png" width="70%" height="70%">
+<img src="./algorithms/eq8.png" width="70%" height="70%">
 
 For more minimalist (no syntax highlighting) and simple snippets of code, try the [`verbatim`]([https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted](https://pt.overleaf.com/learn/latex/Code_listing#The_verbatim_environment)) environment. For an alternative to `listings`, try [`minted`](https://pt.overleaf.com/learn/latex/Code_Highlighting_with_minted), which works pretty similarly. Unlike `listings`, however, the `minted` package contains ready-made syntax highlighting for most famous programming languages.
