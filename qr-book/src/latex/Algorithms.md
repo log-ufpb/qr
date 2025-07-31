@@ -15,8 +15,8 @@ Package [`algorithm2e`](https://www.overleaf.com/learn/latex/Algorithms#The_algo
 \KwResult{A sorted array $A'$}
 \Begin{
     $A' \gets A$ \tcp{Make a copy of A}
-    \For{$j = 1,\dots,n$}{  \label{line:bubblefor1} 
-        \For{$i=0,\dots,n-1$} 
+    \For{$j = 1,\dots,n$}{  \label{line:bubblefor1}
+        \For{$i=0,\dots,n-1$}
         { \label{line:bubblefor2}
             \If{$A'[i] > A'[i+1]$}{ \label{line:bubbleif}
                 \tcc{Swapping A'[i] and A'[i + 1] through temporary variable}
@@ -31,8 +31,8 @@ Package [`algorithm2e`](https://www.overleaf.com/learn/latex/Algorithms#The_algo
 \caption{\textsc{Bubble Sort}\label{alg:bubblesort}}
 \end{algorithm}
 
-Algorithm \ref{alg:bubblesort} describes an implementaiton of Bubble Sort. 
-Lines \eqref{line:bubblefor1} and \eqref{line:bubblefor2} iterate through all pairs of elements in $A'$. 
+Algorithm \ref{alg:bubblesort} describes an implementaiton of Bubble Sort.
+Lines \eqref{line:bubblefor1} and \eqref{line:bubblefor2} iterate through all pairs of elements in $A'$.
 Line \eqref{line:bubbleif} checks if $A'[i]$ is greater than $A'[i+1]$, in which case these elements are swapped in lines \eqref{line:swap1}--\eqref{line:swap2}.
 ```
 <img src="./algorithms/eq6.png" width="70%" height="70%">
@@ -100,7 +100,7 @@ stepnumber=1
 
 % ...
 
-\begin{lstlisting}[style=cplusplusListStyle] 
+\begin{lstlisting}[style=cplusplusListStyle]
 // Your First C++ Program
 
 #include <iostream>

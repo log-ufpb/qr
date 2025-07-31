@@ -121,4 +121,3 @@ To check how often each duplicate appears:
 ```python
 df[column_names].value_counts()
 ```
-

@@ -1,3 +1,3 @@
 # Data
 
-In this chpter we will go through the basics 
+In this chpter we will go through the basics

@@ -14,7 +14,7 @@
 
 ***
 
-## Priority queues 
+## Priority queues
 
 **They store a group of elements sequentially, and efficiently obtain its maximum or minimum value.**
 
@@ -26,7 +26,7 @@
   - Search for the maximum/minimum value: \\(O(1)\\)
 
 ***
-  
+
 ## Set
 
 **They efficiently store a group of non-repeating elements.**
@@ -39,7 +39,7 @@
   - Search for an element with a certain value: \\(O(\log n)\\)
 
 ***
-  
+
 ## Map
 
 **They store elements of type `<key, value>` efficiently avoiding key repetition (repetition of values is possible).**
@@ -81,37 +81,37 @@ private:
     struct Element{
         int root;
         int rank;
-        
+
         Element() = default;
         Element(int root) : root(root), rank(1){}
     };
 
     vector<Element> map;
-public:    
+public:
     Disjointed_set_union(int total_elements){
         map.resize(total_elements);
     }
-    
+
     void make_set(int value){
         int last_idx = map.size();
         map[value] = Element(value);
     }
-    
+
     int find(int value){
         if(map[value].root == value){
             return value;
         }
         return map[value].root = find(map[value].root);
     }
-    
+
     void union_sets(int value_1, int value_2){
         int root_1 = find(value_1);
         int root_2 = find(value_2);
-        
+
         if (root_1 != root_2){
             int rank_1 = map[root_1].rank;
             int rank_2 = map[root_2].rank;
-            
+
             if(rank_1 > rank_2){
                 map[root_2].root = root_1;
             }else if(rank_1 < rank_2){
@@ -122,7 +122,7 @@ public:
             }
         }
     }
-    
+
     bool is_same_set(int value_1, int value_2){
         return find(value_1) == find(value_2);
     }
@@ -144,12 +144,12 @@ int main(){
             }else{
                 printf("%d and %d are not in the same set\n", i, j);
             }
-        }   
+        }
     }
     printf("\n ------------- \n\n");
-    
+
     dsu.union_sets(1, 2);
-    
+
     for(int i = 1; i < max_elements; ++i){
         for(int j = i+1; j < max_elements; ++j){
             if (dsu.is_same_set(i, j)){
@@ -157,12 +157,12 @@ int main(){
             }else{
                 printf("%d and %d are not in the same set\n", i, j);
             }
-        }   
+        }
     }
     printf("\n ------------- \n\n");
-    
+
     dsu.union_sets(3, 4);
-    
+
     for(int i = 1; i < max_elements; ++i){
         for(int j = i+1; j < max_elements; ++j){
             if (dsu.is_same_set(i, j)){
@@ -170,10 +170,10 @@ int main(){
             }else{
                 printf("%d and %d are not in the same set\n", i, j);
             }
-        }   
+        }
     }
     printf("\n ------------- \n\n");
-    
+
     dsu.union_sets(1, 3);
 
     for(int i = 1; i < max_elements; ++i){
@@ -183,7 +183,7 @@ int main(){
             }else{
                 printf("%d and %d are not in the same set\n", i, j);
             }
-        }   
+        }
     }
     return 0;
 }
@@ -295,4 +295,3 @@ int main(){
     return 0;
 }
 ```
-

@@ -46,13 +46,13 @@ To securely connect and log into a destination machine using ssh, you will need 
 
 ```
 ssh user_account@ip_address
-example: ssh user@111.1.111.111 
+example: ssh user@111.1.111.111
 ```
 
 If you need to specify the port:
 ```
 ssh -p PORT user_account@ip_address
-example: ssh -p 8022 user@111.1.111.111 
+example: ssh -p 8022 user@111.1.111.111
 ```
 
 # File transfer
@@ -65,7 +65,7 @@ You will need a user account on the remote host, the hostname or IP address of t
 
 ```
 scp user_account@ip_address:source_path_to_file destination_path
-example: scp user@111.1.111.111:/home/file.txt ~/destination/ 
+example: scp user@111.1.111.111:/home/file.txt ~/destination/
 ```
 
 ## How to copy files from your machine to a remote host?
@@ -74,5 +74,5 @@ To copy files from your computer to a remote one you will need an account on the
 
 ```
 scp /source_path_to_file user_account@ip_address:/destination_path
-example: scp ~/file.txt  user@111.1.111.111:~/destination/ 
+example: scp ~/file.txt  user@111.1.111.111:~/destination/
 ```

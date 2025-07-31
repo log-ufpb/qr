@@ -1,6 +1,6 @@
 # Oxford math classes
 
-Oxford Mathematics offers a collection of math classes on YouTube. You can explore the entire playlist [here](https://www.youtube.com/watch?v=nYM0gaPU-8g&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=3). 
+Oxford Mathematics offers a collection of math classes on YouTube. You can explore the entire playlist [here](https://www.youtube.com/watch?v=nYM0gaPU-8g&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=3).
 
 ## Calculus
 
@@ -62,7 +62,7 @@ Oxford Mathematics offers a collection of math classes on YouTube. You can explo
 
 - [Differential Equations II](https://www.youtube.com/watch?v=8YV_VjtxaXo&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=52&pp=iAQB)
 
-## Networks 
+## Networks
 
 - [Lecture 1](https://www.youtube.com/watch?v=TQKgB0RnjeY&list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&index=94&pp=iAQB)
 

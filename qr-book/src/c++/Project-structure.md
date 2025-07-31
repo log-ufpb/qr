@@ -33,7 +33,7 @@ cd <project_name>
 touch README.md
 ```
 
-## Source directory 
+## Source directory
 
 Next, create a source directory to hold your C++ source files. Usually we name this directory `src` or `source`, and both are okay, but we are going to use `src`:
 
@@ -74,7 +74,7 @@ touch foo.hpp
 
 ## Initialize git (optional)
 
-Even though using git is not exactly C++, it is recommended to always use it. 
+Even though using git is not exactly C++, it is recommended to always use it.
 
 ```
 cd ..
@@ -114,9 +114,9 @@ And it should return (we abstracted the things inside the `.git` directory, beca
     └── main.cpp
 ```
 
-## Automation 
+## Automation
 
-Although the project structure is straightforward and could be built quickly by executing each step as we did, it's even better to streamline this setup with a single, automated command. This reduces the risk of errors that might arise 
+Although the project structure is straightforward and could be built quickly by executing each step as we did, it's even better to streamline this setup with a single, automated command. This reduces the risk of errors that might arise
 and saves you some time from running 6-10 separate commands manually.
 
 To simplify this process, we recommend creating a [shell script](https://en.wikipedia.org/wiki/Shell_script) that automates everything in one go. You can find a simple script for this project structure [here](https://github.com/guidantas21/cpp-programming/tree/main/project_structure).

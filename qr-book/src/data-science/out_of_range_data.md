@@ -145,4 +145,3 @@ Choosing the right strategy depends on:
 * The sensitivity of downstream models or analyses to extreme values.
 
 When in doubt, **visualize your data**, consult domain experts, and test different approaches to ensure robustness.
-

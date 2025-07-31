@@ -1,4 +1,4 @@
-To install [Python-MIP](https://www.python-mip.com/), use the command `pip install mip`. 
+To install [Python-MIP](https://www.python-mip.com/), use the command `pip install mip`.
 
 For usage in [Google Colab](https://colab.google/), add the following code snippet:
 
@@ -11,4 +11,4 @@ If you encounter the error shown in the image below during the installation, res
 
 <img src="./error.png">
 
-Find more information about the installation process in the [Python-MIP documentation](https://python-mip.readthedocs.io/en/latest/install.html). 
+Find more information about the installation process in the [Python-MIP documentation](https://python-mip.readthedocs.io/en/latest/install.html).

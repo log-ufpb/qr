@@ -2,13 +2,13 @@ Being able to write mathematical expressions with plain text is one of LateX's g
 ```latex
 $S = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} \alpha^k x_k + \frac{\log{i}}{i} \right) $
 ```
-to a plain LaTeX file yields the expression $$S = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} \alpha^k x_k + \frac{\log{i}}{i} \right). $$ Frequently used mathematical objects (e.g., matrices, vectors, sets, piecewise functions) can be easily written likewise. 
+to a plain LaTeX file yields the expression $$S = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} \alpha^k x_k + \frac{\log{i}}{i} \right). $$ Frequently used mathematical objects (e.g., matrices, vectors, sets, piecewise functions) can be easily written likewise.
 
-For an overall introduction to latex math, refer to [Overleaf guides](https://www.overleaf.com/learn/latex/Mathematical_expressions). 
+For an overall introduction to latex math, refer to [Overleaf guides](https://www.overleaf.com/learn/latex/Mathematical_expressions).
 
 ## Mathematical formulations
 
-Mathematical formulations are commonly used to solve optimization problems. As such, one is often faced with the task to cleanly present them in scientific reports. Many times, a mathematical formulation can be seen as a collection of equations, inequations and expressions that are deeply related. Therefore, care must be taken to correctly organize and align such expressions, so they are presented in an easy to follow fashion. 
+Mathematical formulations are commonly used to solve optimization problems. As such, one is often faced with the task to cleanly present them in scientific reports. Many times, a mathematical formulation can be seen as a collection of equations, inequations and expressions that are deeply related. Therefore, care must be taken to correctly organize and align such expressions, so they are presented in an easy to follow fashion.
 
 The following example shows how one may write a formulation for the Traveling Salesman Problem in LaTeX. A label can be assigned to each equation with the `\label{}` command. Labeled equations can be referenced later in the text by using the `\eqref{}` command. By default, equations are automatically numbered. Alternatively, the `\tag{}` command can be used to assign a custom name to an equation instead of a number.  All references to an equation will work as a hyperlink if the package `hyperref` is imported.
 
@@ -19,16 +19,16 @@ The following example shows how one may write a formulation for the Traveling Sa
 	& \sum_{i \in S}\sum_{j \notin S} x_{ij} \geq 1, S \subset V, S \neq \emptyset, \label{eq:subtourConstraintsTSP} \\
 	& x_{ij} \in \{0,1\}, i \in V, j > i. \label{eq:integralityConstraintsTSP}
 \end{align}
-Problem \eqref{eq:probTSP} aims to minimize the total traveling cost. 
-Constraints \eqref{eq:degreeConstraintsTSP} force all vertices to have degree 2. 
-Constraints \eqref{eq:subtourConstraintsTSP} ensure connectivity. 
+Problem \eqref{eq:probTSP} aims to minimize the total traveling cost.
+Constraints \eqref{eq:degreeConstraintsTSP} force all vertices to have degree 2.
+Constraints \eqref{eq:subtourConstraintsTSP} ensure connectivity.
 Finally, constraints \eqref{eq:integralityConstraintsTSP} describe the domain of variables $x_{ij}$
 ```
 
 <img src="./equations/eq1.png" width="70%" height="70%">
 
 
-Much of how formulations are actually structured is subject to one's liking. In the previous example, the `&` operator was used to [align equations](https://www.overleaf.com/learn/latex/Aligning_equations_with_amsmath) to the left. The following snippet shows an alternative way to present the same formulation, in such a way that expressions are more evenly distributed, and the objective function is centered. 
+Much of how formulations are actually structured is subject to one's liking. In the previous example, the `&` operator was used to [align equations](https://www.overleaf.com/learn/latex/Aligning_equations_with_amsmath) to the left. The following snippet shows an alternative way to present the same formulation, in such a way that expressions are more evenly distributed, and the objective function is centered.
 
 ```latex
  \begin{align}
@@ -39,9 +39,9 @@ Much of how formulations are actually structured is subject to one's liking. In 
 	 \sum_{i \in S}\sum_{j \notin S} x_{ij} \geq 1 & & S \subset V, S \neq \emptyset \label{eq:subtourConstraintsTSP} \\
 	 x_{ij} \in \{0,1\} & & i \in V, j > i \label{eq:integralityConstraintsTSP}
 \end{align}
-Problem \eqref{eq:probTSP} aims to minimize the total traveling cost. 
-Constraints \eqref{eq:degreeConstraintsTSP} force all vertices to have degree 2. 
-Constraints \eqref{eq:subtourConstraintsTSP} ensure connectivity. 
+Problem \eqref{eq:probTSP} aims to minimize the total traveling cost.
+Constraints \eqref{eq:degreeConstraintsTSP} force all vertices to have degree 2.
+Constraints \eqref{eq:subtourConstraintsTSP} ensure connectivity.
 Finally, constraints \eqref{eq:integralityConstraintsTSP} describe the domain of variables $x_{ij}$
 ```
 <img src="./equations/eq2.png" width="70%" height="70%">
