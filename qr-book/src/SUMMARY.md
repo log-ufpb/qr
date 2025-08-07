@@ -35,6 +35,7 @@
 
 - [Machine Learning]()
   - [Houdout](./ml/houdout.md)
+  - [Classification metrics](./ml/classification-metrics.md)
 
 # Mathematics
 
