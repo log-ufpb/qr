@@ -21,6 +21,10 @@
   - [Shared installation](./gurobi/Shared-installation.md)
   - [Free license](./gurobi/Free-license.md)
 
+- [CPLEX](./cplex/cplex.md)
+  - [How to download](./cplex/download.md)
+  - [Setting a memory limit](./cplex/mem_limit.md)
+
 - [Instance Space Analysis]()
   - [Matilda](./instance-space-analysis/Matilda.md)
 
