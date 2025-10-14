@@ -19,7 +19,7 @@
 
 - [Gurobi](./gurobi/gurobi.md)
   - [Shared installation](./gurobi/Shared-installation.md)
-  - [Free lincense](./gurobi/Free-license.md)
+  - [Free license](./gurobi/Free-license.md)
 
 - [Instance Space Analysis]()
   - [Matilda](./instance-space-analysis/Matilda.md)
