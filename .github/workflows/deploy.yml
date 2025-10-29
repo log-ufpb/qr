@@ -2,43 +2,71 @@ name: Deploy multiple mdBooks to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install latest mdBook
+      - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v1
         with:
           mdbook-version: "latest"
 
-      - name: Build all books
+      - name: Build all mdBooks
         run: |
           mdbook build qr-book
           mdbook build qr-dev
           mdbook build qr-algorithms
           mdbook build qr-modelling
 
-      - name: Prepare deploy directory
+      - name: Prepare combined site directory
         run: |
-          mkdir deploy
-          mv qr-book/book deploy/qr
-          mv qr-dev/book deploy/qr-dev
-          mv qr-algorithms/book deploy/qr-algorithms
-          mv qr-modelling/book deploy/qr-modelling
+          mkdir _site
+          mv qr-book/book _site/qr-book
+          mv qr-dev/book _site/qr-dev
+          mv qr-algorithms/book _site/qr-algorithms
+          mv qr-modelling/book _site/qr-modelling
+
+          # Optional: create a root index page
+          cat > _site/index.html <<'EOF'
+          <html>
+            <head><title>Quick Reference Books</title></head>
+            <body>
+              <h1>Quick Reference Books</h1>
+              <ul>
+                <li><a href="qr-book/">QR Book</a></li>
+                <li><a href="qr-dev/">QR Dev</a></li>
+                <li><a href="qr-algorithms/">QR Algorithms</a></li>
+                <li><a href="qr-modelling/">QR Modelling</a></li>
+              </ul>
+            </body>
+          </html>
+          EOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
