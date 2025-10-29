@@ -30,15 +30,21 @@ jobs:
 
       # ---- Dynamically build the matrix of books ----
       - id: set-matrix
+        name: Define book matrix
         run: |
-          # List of (folder, url-subpath) pairs
-          BOOKS='[
-            {"folder":"qr-book",        "path":"home"},
-            {"folder":"qr-dev",         "path":"dev"},
-            {"folder":"qr-modelling",   "path":"modelling"},
-            {"folder":"qr-algorithms",  "path":"algorithms"}
-          ]'
-          echo "matrix=$BOOKS" >> $GITHUB_OUTPUT
+          BOOKS=$(cat <<EOF
+          [
+            {"folder": "qr-book",       "path": "home"},
+            {"folder": "qr-dev",        "path": "dev"},
+            {"folder": "qr-modelling",  "path": "modelling"},
+            {"folder": "qr-algorithms", "path": "algorithms"}
+          ]
+          EOF
+          )
+          # Compact JSON (single line) to avoid parsing issues
+          COMPACT=$(echo "$BOOKS" | jq -c .)
+          echo "matrix=$COMPACT" >> $GITHUB_OUTPUT
+        shell: bash
 
       # ---- Build each book and stash the result ----
       - name: Build all books
