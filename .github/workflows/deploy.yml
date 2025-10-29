@@ -1,10 +1,10 @@
-name: Deploy mdBook to GitHub Pages
+name: Deploy multiple mdBooks to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 permissions:
   contents: read
@@ -12,7 +12,62 @@ permissions:
   id-token: write
 
 jobs:
+  # -------------------------------------------------
+  # 1. Build every book into a temporary folder
+  # -------------------------------------------------
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install latest mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: "latest"
+
+      # ---- Dynamically build the matrix of books ----
+      - id: set-matrix
+        run: |
+          # List of (folder, url-subpath) pairs
+          BOOKS='[
+            {"folder":"qr-book",        "path":"home"},
+            {"folder":"qr-dev",         "path":"dev"},
+            {"folder":"qr-modelling",   "path":"modelling"},
+            {"folder":"qr-algorithms",  "path":"algorithms"}
+          ]'
+          echo "matrix=$BOOKS" >> $GITHUB_OUTPUT
+
+      # ---- Build each book and stash the result ----
+      - name: Build all books
+        run: |
+          mkdir -p _site
+          ${{ steps.set-matrix.outputs.matrix }} | jq -c '.[]' | while read -r book; do
+            folder=$(echo "$book" | jq -r .folder)
+            path=$(echo "$book" | jq -r .path)
+            echo "Building $folder → /$path"
+            cd "$folder"
+            mdbook build
+            cd -
+            mkdir -p "_site/$path"
+            cp -r "$folder/book/"* "_site/$path/"
+          done
+
+      - name: Upload temporary site as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pages-site
+          path: _site
+          retention-days: 1
+
+  # -------------------------------------------------
+  # 2. Deploy the combined site to GitHub Pages
+  # -------------------------------------------------
   deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' # only on push to main
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -20,18 +75,11 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v1
+      - name: Download built site
+        uses: actions/download-artifact@v4
         with:
-          mdbook-version: 'latest'
-
-      - name: Build mdBook
-        run: |
-          cd qr-book
-          mdbook build
+          name: pages-site
+          path: _site
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -39,7 +87,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./qr-book/book
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
