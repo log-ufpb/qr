@@ -1,0 +1,1235 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Quick Reference</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Quick Reference</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="quick-reference"><a class="header" href="#quick-reference">Quick Reference</a></h1>
+<p>By <em>LOG-UFPB</em>.</p>
+<p>Welcome to <strong>Quick Reference</strong>, a collection of useful knowledge that can be accessed quickly.</p>
+<p>The effort of one person to understand how to solve a problem should be recorded so that others in the same situation only need to consult the QR instead of going through the same struggle.
+Besides, random knowledge such as links (to videos or websites), libraries, tips, and tricks can be useful to many people but are not always intuitive to find or use. Therefore, documenting them is important.</p>
+<p>Here, you will find quick references related to the topics below and more:</p>
+<ul>
+<li>Programming</li>
+<li>Optimization</li>
+<li>Mathematics</li>
+<li>Data science</li>
+</ul>
+<p>The QR is Markdown-based book created with <a href="https://rust-lang.github.io/mdBook/">mdBook</a>, just like <a href="https://doc.rust-lang.org/book/">The Rust Programming Language</a> and <a href="https://docs.helix-editor.com/">Helix Documentation</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="vector"><a class="header" href="#vector">Vector</a></h2>
+<p><strong>They store a group of elements, sequentially.</strong></p>
+<ul>
+<li><a href="https://cplusplus.com/reference/vector/vector/">Part of the C++ STL</a></li>
+<li>Implementation: Arrays that can be reallocated in case they exceed a specific size.</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Insertion of elements at the end of the vector: \(O(1)\)</li>
+<li>Insertion of elements in the middle of the vector: \(O(n)\)</li>
+<li>Removal of elements  at the end of the vector: \(O(1)\)</li>
+<li>Removal of elements in the middle of the vector: \(O(n)\)</li>
+<li>Search for an element in a certain position: \(O(1)\)</li>
+<li>Search for an element with a certain value: \(O(n)\)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="priority-queues"><a class="header" href="#priority-queues">Priority queues</a></h2>
+<p><strong>They store a group of elements sequentially, and efficiently obtain its maximum or minimum value.</strong></p>
+<ul>
+<li><a href="https://cplusplus.com/reference/queue/priority_queue/">Part of the C++ STL</a></li>
+<li>Implementation: Max/Min Heap</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Insertion of any element: \(O(\log n)\)</li>
+<li>Removal of any element: \(O(\log n)\)</li>
+<li>Search for the maximum/minimum value: \(O(1)\)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="set"><a class="header" href="#set">Set</a></h2>
+<p><strong>They efficiently store a group of non-repeating elements.</strong></p>
+<ul>
+<li><a href="https://cplusplus.com/reference/set/set/">Part of the C++ STL</a></li>
+<li>Implementation: Binary Search Trees</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Insertion of any element: \(O(\log n)\)</li>
+<li>Removal of any element: \(O(\log n)\)</li>
+<li>Search for an element with a certain value: \(O(\log n)\)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="map"><a class="header" href="#map">Map</a></h2>
+<p><strong>They store elements of type <code>&lt;key, value&gt;</code> efficiently avoiding key repetition (repetition of values is possible).</strong></p>
+<ul>
+<li><a href="https://cplusplus.com/reference/map/map/">Part of the C++ STL</a></li>
+<li>Implementation: Binary Search Trees</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Insertion of any element: \(O(\log n)\)</li>
+<li>Removal of any element: \(O(\log n)\)</li>
+<li>Search for an element with a certain key: \(O(\log n)\)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="disjoint-set-union"><a class="header" href="#disjoint-set-union">Disjoint Set Union</a></h2>
+<p><strong>This data structure stores a collection of sets without element overlap. It allows for efficient operations to create and join sets, as well as checking if two elements are part of the same set. Disjoint Set Union is used in efficient implementations of the Kruskal algorithm for finding the Minimum Spanning Tree of a graph.</strong></p>
+<ul>
+<li>Not a part of the C++ STL</li>
+<li>Implementation: Vectors or Arrays</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Create a set: \(O(1)\)</li>
+<li>Join two sets: \(\approx O(1)\)</li>
+<li>Search for a set of a certain element: \(\approx O(1)\)</li>
+<li>Check if two elements are part of the same set: \(\approx O(1)\)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><strong>Example:</strong></p>
+<img src="https://cp-algorithms.com/data_structures/DSU_example.png" align="center">
+<pre><code class="language-C++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+class Disjointed_set_union{
+private:
+    struct Element{
+        int root;
+        int rank;
+
+        Element() = default;
+        Element(int root) : root(root), rank(1){}
+    };
+
+    vector&lt;Element&gt; map;
+public:
+    Disjointed_set_union(int total_elements){
+        map.resize(total_elements);
+    }
+
+    void make_set(int value){
+        int last_idx = map.size();
+        map[value] = Element(value);
+    }
+
+    int find(int value){
+        if(map[value].root == value){
+            return value;
+        }
+        return map[value].root = find(map[value].root);
+    }
+
+    void union_sets(int value_1, int value_2){
+        int root_1 = find(value_1);
+        int root_2 = find(value_2);
+
+        if (root_1 != root_2){
+            int rank_1 = map[root_1].rank;
+            int rank_2 = map[root_2].rank;
+
+            if(rank_1 &gt; rank_2){
+                map[root_2].root = root_1;
+            }else if(rank_1 &lt; rank_2){
+                map[root_1].root = root_2;
+            }else{
+                map[root_2].root = root_1;
+                map[root_1].rank++;
+            }
+        }
+    }
+
+    bool is_same_set(int value_1, int value_2){
+        return find(value_1) == find(value_2);
+    }
+};
+
+int main(){
+    // The elements are numbered from 1 to 4 to match the figure above
+    int max_elements = 5;
+    Disjointed_set_union dsu(max_elements); // Max of elements is 4
+    dsu.make_set(1);
+    dsu.make_set(2);
+    dsu.make_set(3);
+    dsu.make_set(4);
+
+    for(int i = 1; i &lt; max_elements; ++i){
+        for(int j = i+1; j &lt; max_elements; ++j){
+            if (dsu.is_same_set(i, j)){
+                printf("%d and %d are in the same set\n", i, j);
+            }else{
+                printf("%d and %d are not in the same set\n", i, j);
+            }
+        }
+    }
+    printf("\n ------------- \n\n");
+
+    dsu.union_sets(1, 2);
+
+    for(int i = 1; i &lt; max_elements; ++i){
+        for(int j = i+1; j &lt; max_elements; ++j){
+            if (dsu.is_same_set(i, j)){
+                printf("%d and %d are in the same set\n", i, j);
+            }else{
+                printf("%d and %d are not in the same set\n", i, j);
+            }
+        }
+    }
+    printf("\n ------------- \n\n");
+
+    dsu.union_sets(3, 4);
+
+    for(int i = 1; i &lt; max_elements; ++i){
+        for(int j = i+1; j &lt; max_elements; ++j){
+            if (dsu.is_same_set(i, j)){
+                printf("%d and %d are in the same set\n", i, j);
+            }else{
+                printf("%d and %d are not in the same set\n", i, j);
+            }
+        }
+    }
+    printf("\n ------------- \n\n");
+
+    dsu.union_sets(1, 3);
+
+    for(int i = 1; i &lt; max_elements; ++i){
+        for(int j = i+1; j &lt; max_elements; ++j){
+            if (dsu.is_same_set(i, j)){
+                printf("%d and %d are in the same set\n", i, j);
+            }else{
+                printf("%d and %d are not in the same set\n", i, j);
+            }
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p>It is possible to use <code>unordered_map</code> instead of <code>vector</code> for a more general implementation.</p>
+<h2 id="graphs-adjacency-list"><a class="header" href="#graphs-adjacency-list">Graphs (adjacency list)</a></h2>
+<p><strong>They represent sparse graphs when it is necessary to know which arcs touch a certain vertex. This data structure is efficient in memory spaces when compared to other implementations (e.g., adjacency matrix). Moreover, they can be more efficient, time-wise, for algorithms such as breadth-first search and depth-first search.</strong></p>
+<ul>
+<li>Not a part of the C++ STL</li>
+<li>Implementation: Vector of vectors</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Insertion of elements at the end of the vector: \(O(1)\)</li>
+<li>Removal of elements  at the end of the vector: \(O(1)\)</li>
+<li>Check the existence of an arc between any two vertices: \(O(n)\)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example:</strong></p>
+<img src="https://www.techiedelight.com/wp-content/uploads/Eulerian-Cycle-in-Directed-Graph.png" align="center" width=33% height=33%>
+<pre><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;vector&gt;
+using namespace std;
+
+int main(){
+    int total_nodes = 4;
+    vector&lt;vector&lt;int&gt;&gt; graph(total_nodes); // initialise with 4 empty vectors
+
+    graph[0].push_back(1); // adds an arc from 0 to 1
+    graph[1].push_back(2); // adds an arc from 1 to 2
+    graph[1].push_back(4); // adds an arc from 1 to 4
+    graph[2].push_back(3); // adds an arc from 2 to 3
+    graph[3].push_back(0); // adds an arc from 3 to 0
+    graph[3].push_back(1); // adds an arc from 3 to 1
+    graph[4].push_back(3); // adds an arc from 4 to 3
+
+
+    // iterate over the arcs from each vertex
+    for(int i = 0; i &lt; total_nodes; ++i){
+        for(auto j : graph[i]){
+            printf("There is an arc from %d to %d\n", i, j);
+        }
+    }
+    return 0;
+}
+</code></pre>
+<hr />
+<h2 id="graphs-adjacency-matrix"><a class="header" href="#graphs-adjacency-matrix">Graphs (adjacency matrix)</a></h2>
+<p><strong>They represent dense graphs when it is necessary to know if there is an arc between any two vertices or its cost in weighted graphs.</strong></p>
+<ul>
+<li>Not a part of the C++ STL</li>
+<li>Implementation: Array of arrays or vector of vectors. It is important it is a matrix \(n \times n\).</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Insertion of an arc: \(O(1)\)</li>
+<li>Removal of an arc: \(O(1)\)</li>
+<li>Changing an arc: \(O(1)\)</li>
+<li>Check the existence of an arc between any two vertices: \(O(1)\)</li>
+<li>Obtain the cost of an arc between any two vertices: \(O(1)\)</li>
+<li>Insertion of a vertex costs the same as a matrix reallocation for an array of arrays or the vertex insertion in each vector when implementing this structure as a vector of vectors.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example:</strong></p>
+<img src="https://ucarecdn.com/a67cb888-aa0c-424b-8c7f-847e38dd5691/" align="center" width=33% height=33%>
+<pre><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;vector&gt;
+using namespace std;
+
+int main(){
+    int total_nodes = 5;
+    int graph_arr[total_nodes][total_nodes] = {
+                                           {0, 3, 0, 7, 8},
+                                           {3, 0, 1, 4, 0},
+                                           {0, 1, 0, 2, 0},
+                                           {7, 4, 2, 0, 3},
+                                           {8, 0, 0, 3, 0}
+                                          };
+
+    // iterate over the vertices
+    for(int i = 0; i &lt; total_nodes; ++i){
+       for(int j = i+1; j &lt; total_nodes; ++j){
+           if(graph_arr[i][j])
+              printf("There is an edge from %d to %d with cost: %d\n", i, j, graph_arr[i][j]);
+        }
+    }
+    printf("\n-----------------------\n\n");
+    vector&lt;vector&lt;int&gt;&gt; graph_vec {
+                                    {0, 3, 0, 7, 8},
+                                    {3, 0, 1, 4, 0},
+                                    {0, 1, 0, 2, 0},
+                                    {7, 4, 2, 0, 3},
+                                    {8, 0, 0, 3, 0}
+                                   };
+
+    // iterate over the vertices
+    for(int i = 0; i &lt; total_nodes; ++i){
+       for(int j = i+1; j &lt; total_nodes; ++j){
+           if(graph_vec[i][j])
+              printf("There is an edge from %d to %d with cost: %d\n", i, j, graph_vec[i][j]);
+        }
+    }
+    return 0;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li>
+<p><a href="https://github.com/nlohmann/json">nlohmann/json</a>: A Popular, header-only C++ library for working with JSON. It provides an intuitive, STL-like API for parsing, serializing, and manipulating JSON data.</p>
+</li>
+<li>
+<p><a href="https://github.com/p-ranav/argparse">p-ranav/argparse</a>: A lightweight, header-only C++ library for command-line argument parsing with a Python argparse-like API.</p>
+</li>
+<li>
+<p><a href="https://github.com/google/benchmark">google/benchmark</a>: A microbenchmarking library for measuring the performance of C++ code, designed for benchmarking functions and code snippets.</p>
+</li>
+<li>
+<p><a href="https://github.com/google/googletest">google/googletest</a>: A widely used C++ testing framework that provides unit testing capabilities with assertions, fixtures, and test runners.</p>
+</li>
+<li>
+<p><a href="https://github.com/catchorg/Catch2">catchorg/Catch2</a>: A modern, header-only C++ testing framework that supports simple test case definitions and expressive assertions.</p>
+</li>
+<li>
+<p><a href="https://github.com/fmtlib/fmt">fmtlib/fmt</a>: A fast and safe formatting library for C++, providing an alternative to <code>printf</code> and <code>std::ostream</code>.</p>
+</li>
+<li>
+<p><a href="https://github.com/gabime/spdlog">gabime/spdlog</a>: A fast, header-only C++ logging library with support for console and file output, formatting, and multithreading.</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="documentation"><a class="header" href="#documentation">Documentation</a></h2>
+<ul>
+<li>
+<blockquote>
+<p>https://cplusplus.com/</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>https://en.cppreference.com/w/</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="github-repositories"><a class="header" href="#github-repositories">Github repositories</a></h2>
+<ul>
+<li>
+<blockquote>
+<p>https://github.com/federico-busato/Modern-CPP-Programming</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>https://github.com/cpp-best-practices/cppbestpractices</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="books"><a class="header" href="#books">Books</a></h2>
+<ul>
+<li><a href="https://www.amazon.com/Art-Writing-Efficient-Programs-optimizations/dp/1800208111">The Art of Writing Efficient Programs: An advanced programmer's guide to efficient hardware utilization and compiler optimizations using C++ examples (Fedor G. Pikus, 2021)</a></li>
+<li><a href="https://www.amazon.com/High-Performance-Master-optimizing-functioning/dp/1839216549">C++ High Performance, Second Edition: Master the art of optimizing the functioning of your C++ code (Björn Andrist, Viktor Sehr, 2020)</a></li>
+<li><a href="https://www.amazon.com/C-Concurrency-Action-Practical-Multithreading/dp/1933988770">C++ Concurrency in Action: Practical Multithreading 1st Edition (Anthony Williams, 2012)</a></li>
+</ul>
+<h2 id="youtube-channels"><a class="header" href="#youtube-channels">Youtube channels</a></h2>
+<ul>
+<li>
+<blockquote>
+<p>https://www.youtube.com/@TheCherno</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>https://www.youtube.com/@cppweekly</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>https://www.youtube.com/@CppNow</p>
+</blockquote>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
+<p>To be able to use Git on your computer, <a href="https://www.atlassian.com/git/tutorials/install-git">install</a> the Git <em>command-line interface</em> (CLI).</p>
+<h2 id="basic-commands"><a class="header" href="#basic-commands">Basic Commands</a></h2>
+<p>Some <a href="https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html">basic commands</a>, as well as <a href="https://github.com/git-guides/git-commit">commit commands</a>, can be very useful in everyday use of Git CLI.</p>
+<h2 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h2>
+<p>Follow some <a href="https://about.gitlab.com/topics/version-control/version-control-best-practices/">recommended best practices for version control</a> in order to properly use Git, especially when working as part of a team.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="authentication"><a class="header" href="#authentication">Authentication</a></h2>
+<p>On some platforms like GitLab, one can easily sign in to their account through Git CLI by using a username and password. However, GitHub does not allow you to do that. Instead, you have to set up a <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">personal access token</a> that will be used to identify you when doing operations like pushing content to a remote repository.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="concorde-solver"><a class="header" href="#concorde-solver">Concorde Solver</a></h2>
+<p>The <a href="https://www.math.uwaterloo.ca/tsp/concorde.html">Concorde solver</a> is a state-of-the-art algorithm for efficiently solving the symmetric <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Travelling Salesman Problem (TSP)</a>.</p>
+<h2 id="python-wrapper"><a class="header" href="#python-wrapper">Python Wrapper</a></h2>
+<p>A convenient way to use this solver is through the <a href="https://github.com/jvkersch/pyconcorde?tab=readme-ov-file">PyConcorde</a> library, a Python wrapper that interfaces with Concorde.</p>
+<h3 id="installation-1"><a class="header" href="#installation-1">Installation</a></h3>
+<p>Installation instructions are well-described in the <a href="https://github.com/jvkersch/pyconcorde?tab=readme-ov-file">PyConcorde Documentation</a>.</p>
+<h3 id="loading-a-tsp-problem"><a class="header" href="#loading-a-tsp-problem">Loading a TSP problem</a></h3>
+<p>To load a TSP problem into the solver, provide a <a href="https://tsplib95.readthedocs.io/en/stable/">TSP instance file</a>. In this example, an existing instance, <code>a280.tsp</code>, is passed to the solver.</p>
+<pre><code class="language-py">from concorde.tsp import TSPSolver
+
+INSTANCE_PATH = "./a280.tsp"
+
+solver = TSPSolver.from_tspfile(INSTANCE_PATH)
+</code></pre>
+<p>If you only have the distance matrix, create a TSP instance file using the <a href="https://tsplib95.readthedocs.io/en/stable/">TSPLIB 95</a> library.</p>
+<pre><code class="language-python">import tsplib95
+
+distance_matrix = [
+    [0, 4, 6, 9, 7],
+    [4, 0, 3, 2, 2],
+    [6, 3, 0, 1, 8],
+    [9, 2, 1, 0, 4],
+    [7, 2, 8, 4, 0]
+]
+
+SIZE = len(distance_matrix)
+
+problem = tsplib95.models.StandardProblem()
+
+problem.name = "example"
+problem.type = "TSP"
+problem.dimension = SIZE
+problem.edge_weight_type = "EXPLICIT"
+problem.edge_weight_format = "FULL_MATRIX"
+problem.edge_weights = distance_matrix
+
+problem.save("example.tsp")
+</code></pre>
+<p>To generate instances with alternative edge weight types such as EUC_2D or GEO, you can create TSP files by referring to the following <a href="http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/">examples</a>.</p>
+<h3 id="solving"><a class="header" href="#solving">Solving</a></h3>
+<p>To execute the algorithm, call the <code>.solve()</code> method:</p>
+<pre><code class="language-python">solution = solver.solve()
+</code></pre>
+<p>By default, the solver prints detailed information during execution. To disable verbosity, use the verbose parameter:</p>
+<pre><code class="language-python">solution = solver.solve(verbose=False)
+</code></pre>
+<p>After execution, the solver returns an object containing, among others, the runtime and the computed tour, as well as flags indicating if the solve was successful and if the time bound was reached.</p>
+<pre><code class="language-python">def print_solution(solution):
+    print(f"Success: {solution.success}")
+    print(f"Hit timebound: {solution.hit_timebound}")
+    print(f"Optimal value: {solution.optimal_value} ")
+    print(f"Tour: {solution.tour}")
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><p>Please, follow the instructions on the <a href="https://www.gurobi.com/wp-content/plugins/hd_documentations/documentation/10.0/quickstart_linux.pdf#page=7">quick start</a> guide for a shared installation. Then, add the following lines to the <code>/etc/profile</code> file.</p>
+<pre><code>export GUROBI_HOME="/opt/gurobi1003/linux64"
+export PATH="${PATH}:${GUROBI_HOME}/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="retrieving-a-license"><a class="header" href="#retrieving-a-license">Retrieving a license</a></h2>
+<p>To retrieve a Gurobi <em>named-user academic</em> license, please refer to the <a href="https://www.gurobi.com/wp-content/plugins/hd_documentations/documentation/10.0/quickstart_linux.pdf#page=10">quick start</a> guide. This type of license is designed for a single person, on a single machine.</p>
+<p>You must be connected to an academic domain to request a new <em>named-user academic</em> license, otherwise, an <code>Academic Domain Error</code> will be issued. In the case of UFPB, a workaround to this issue can be found on <a href="gurobi/access-academic-portals">how to access academic portals from outside UFPB's network domain</a>.</p>
+<h2 id="setting-up-a-license"><a class="header" href="#setting-up-a-license">Setting up a license</a></h2>
+<p>Assuming the license has been downloaded to the <code>home</code> directory, i.e., <code>home/&lt;user&gt;</code>.</p>
+<p>1. Rename the license file.</p>
+<pre><code>$ mv gurobi.lic $HOSTNAME
+</code></pre>
+<p>2. Add the following line to the <code>.bashrc</code> file.</p>
+<pre><code>export GRB_LICENSE_FILE="/home/&lt;user&gt;/$HOSTNAME"
+</code></pre>
+<p>These steps are especially important for users with a <code>home</code> folder shared among multiple machines. For example, assume the user <code>log</code> has a <code>home</code> directory shared between machines q1 and q2, and each machine has a Gurobi installation (see <a href="gurobi/shared-installation">shared installation</a>). In such case, downloading and exporting the GRB_LICENSE_FILE as in the aforementioned steps, for both machines, lets Gurobi select the corresponding license file according to the machine you are logged in.</p>
+<p>Do not forget to <code>source</code> the modified <code>.bashrc</code> file, or reboot the machine, for changes to take effect.</p>
+<pre><code>$ source .bashrc
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="instance-space-analysis"><a class="header" href="#instance-space-analysis">Instance space analysis</a></h2>
+<p>According to Smith-Miles and Muñoz (2023),</p>
+<blockquote>
+<p>"Instance Space Analysis (ISA) is a recently developed methodology to (a) support objective testing of algorithms and (b) assess the diversity of test instances. Representing test instances as feature vectors, the ISA methodology extends Rice’s 1976 Algorithm Selection Problem framework to enable visualization of the entire space of possible test instances, and gain insights into how algorithm performance is affected by instance properties. Rather than reporting algorithm performance on average across a chosen set of test problems, as is standard practice, the ISA methodology offers a more nuanced understanding of the unique strengths and weaknesses of algorithms across different regions of the instance space that may otherwise be hidden on average. It also facilitates objective assessment of any bias in the chosen test instances and provides guidance about the adequacy of benchmark test suites."</p>
+</blockquote>
+<p>An ISA is capable of generating a plot of instances based on the projection of various features into a 2D space. It may be necessary to analyze multiple graphs simultaneously in order to obtain meaningful conclusions when interpreting an ISA. For example, the following plot suggests that the analyzed algorithm performs worse for the instances projected in the lower right half of the 2D space, as the gap is higher in that section.</p>
+<img src="instance-space-analysis/./graphs/performance-h.png" width="70%" height="70%">
+<p>Concurrently, the following plot shows the value of the feature <code>max-utilization</code> in each instance. By comparing both graphs, we can infer a positive correlation tendency between the feature <code>max-utilization</code> and the instance difficulty. In other words, the higher the <code>max-utilization</code>, the harder the instance tends to be for the analyzed algorithm to solve.</p>
+<img src="instance-space-analysis/./graphs/feature-max-utilization.png" width="70%" height="70%">
+<p>Finally, some algorithms perform better in certain instance sets, and an ISA is also capable of providing this valuable insight. As already observed, the algorithm <code>H</code> performs well in instances with a low <code>max-utilization</code>. However, with the increase of <code>max-utilization</code>, <code>F1_i</code> becomes the best choice.</p>
+<img src="instance-space-analysis/./graphs/SVM-Selection.png" width="70%" height="70%">
+<p>Making a legible projection of the instances into the 2D space is a challenging task since each instance is represented by a vector of features whose length is usually greater than 2. Fortunately, the Melbourne Algorithm Test Instance Library with Data Analytics (Matilda) takes care of everything.</p>
+<h2 id="using-matilda"><a class="header" href="#using-matilda">Using Matilda</a></h2>
+<p>Matilda is an intuitive tool. Using the online version is recommended over downloading the code locally, as the former is much simpler.</p>
+<p>For the input data, follow the instructions on their <a href="https://github.com/andremun/InstanceSpace?tab=readme-ov-file#the-metadata-file">GitHub repository</a>.</p>
+<p>There is a complete tutorial available <a href="https://matilda.unimelb.edu.au/matilda/matildadata/tutorials/matilda-technical-details.mp4">here</a>. Start watching at time 33:32 if you want to use the online version.</p>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<p>Kate Smith-Miles and Mario Andrés Muñoz. 2023. Instance Space Analysis for Algorithm Testing: Methodology and Software Tools. ACM Comput. Surv. 55, 12, Article 255 (December 2023), 31 pages. https://doi.org/10.1145/3572895</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="datasets"><a class="header" href="#datasets">Datasets</a></h1>
+<p>Here a some basics related datasets</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-deal-with-out-of-range-data"><a class="header" href="#how-to-deal-with-out-of-range-data">How to Deal with Out-of-Range Data</a></h1>
+<p>Out-of-range data refers to values that fall outside the expected or acceptable range for a given feature. These values can occur due to data entry errors, system glitches, or real but rare events. Handling such values appropriately is critical for ensuring robust and accurate models or analyses.</p>
+<hr />
+<h3 id="1-dropping-data"><a class="header" href="#1-dropping-data">1. Dropping Data</a></h3>
+<p>Removing rows that contain out-of-range values.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Simple and effective if few data points are affected.</li>
+<li>Ensures only valid data is used in analysis.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>May lead to information loss, especially if the affected proportion is high.</li>
+<li>Can introduce bias if the removed data is not missing at random.</li>
+</ul>
+<p><strong>Rule of Thumb:</strong>
+Only drop rows when a <strong>small proportion</strong> (e.g., &lt; 5%) of your dataset contains out-of-range values.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">df = df[df['age'] &lt;= 100]  # Remove entries with age &gt; 100
+</code></pre>
+<h3 id="2-setting-custom-minimums-and-maximums-capping-or-clipping"><a class="header" href="#2-setting-custom-minimums-and-maximums-capping-or-clipping">2. Setting Custom Minimums and Maximums (Capping or Clipping)</a></h3>
+<p>Cap values at predefined minimum and maximum thresholds.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Preserves all data points while limiting the influence of outliers.</li>
+<li>Useful for models sensitive to extreme values (e.g., linear regression).</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Can distort the data distribution.</li>
+<li>Requires domain knowledge to set appropriate thresholds.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">df['income'] = df['income'].clip(lower=0, upper=200_000)
+</code></pre>
+<h3 id="3-treat-as-missing-and-impute"><a class="header" href="#3-treat-as-missing-and-impute">3. Treat as Missing and Impute</a></h3>
+<p>Convert out-of-range values to <code>NaN</code> and handle them using imputation techniques.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Flexible and model-friendly.</li>
+<li>Allows for advanced imputation strategies (e.g., KNN, regression).</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Introduces complexity.</li>
+<li>Risk of incorrect imputation if assumptions are wrong.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">df.loc[df['temperature'] &lt; -50, 'temperature'] = np.nan
+df['temperature'].fillna(df['temperature'].mean(), inplace=True)
+</code></pre>
+<h3 id="4-setting-custom-values-based-on-business-rules"><a class="header" href="#4-setting-custom-values-based-on-business-rules">4. Setting Custom Values Based on Business Rules</a></h3>
+<p>Replace out-of-range values with specific values that reflect domain-specific assumptions.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Makes data consistent with business logic.</li>
+<li>Can enhance interpretability of results.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Requires clear and justifiable domain rules.</li>
+<li>May oversimplify real-world complexity.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python"># Set to 0 if below minimum viable production
+df.loc[df['production'] &lt; 0, 'production'] = 0
+</code></pre>
+<h3 id="5-binning-or-categorization"><a class="header" href="#5-binning-or-categorization">5. Binning or Categorization</a></h3>
+<p>Convert continuous out-of-range values into categorical bins.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Useful for decision trees or models that handle categories well.</li>
+<li>Can handle extreme values gracefully.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Loss of numeric precision.</li>
+<li>Choice of bins affects model performance.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">df['age_group'] = pd.cut(df['age'], bins=[0, 18, 65, 100], labels=['child', 'adult', 'senior'])
+</code></pre>
+<h3 id="6-log-or-other-transformations"><a class="header" href="#6-log-or-other-transformations">6. Log or Other Transformations</a></h3>
+<p>Apply transformations to reduce the effect of extreme values rather than removing or capping them.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Useful for skewed distributions.</li>
+<li>Retains the structure of the data.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>May not be interpretable in business terms.</li>
+<li>Zero or negative values can cause issues.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-python">df['log_income'] = np.log1p(df['income'])  # log(1 + income)
+</code></pre>
+<hr />
+<h3 id="final-thoughts"><a class="header" href="#final-thoughts">Final Thoughts</a></h3>
+<p>Choosing the right strategy depends on:</p>
+<ul>
+<li>The proportion of out-of-range values.</li>
+<li>Domain knowledge and business constraints.</li>
+<li>The sensitivity of downstream models or analyses to extreme values.</li>
+</ul>
+<p>When in doubt, <strong>visualize your data</strong>, consult domain experts, and test different approaches to ensure robustness.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="duplicate-data"><a class="header" href="#duplicate-data">Duplicate Data</a></h1>
+<p>Duplicate data refers to rows that are repeated partially or fully in a dataset. These duplicates can lead to biased analyses, incorrect statistics, and misleading results.</p>
+<hr />
+<h2 id="what-is-it"><a class="header" href="#what-is-it">What Is It?</a></h2>
+<p>Duplicates are records in your dataset that are identical (complete duplicates) or share key identifying information (incomplete duplicates).</p>
+<ul>
+<li><strong>Complete duplicate:</strong> Every column in a row matches exactly with another row.</li>
+<li><strong>Incomplete duplicate:</strong> Only some columns match (e.g., name and address), while others may differ (e.g., height, timestamp).</li>
+</ul>
+<h2 id="why-do-they-happen"><a class="header" href="#why-do-they-happen">Why Do They Happen?</a></h2>
+<p>Common causes of duplicate data:</p>
+<ul>
+<li><strong>Human error:</strong> Manual data entry mistakes or form re-submissions.</li>
+<li><strong>Merges/joins:</strong> Joining datasets without specifying appropriate keys can create repeated rows.</li>
+<li><strong>Bugs in data pipelines:</strong> Errors in scripts, APIs, or scraping logic.</li>
+<li><strong>Design flaws:</strong> Systems that don't enforce unique constraints or primary keys.</li>
+</ul>
+<h2 id="how-to-find-duplicate-values"><a class="header" href="#how-to-find-duplicate-values">How to Find Duplicate Values?</a></h2>
+<h3 id="1-complete-duplicates"><a class="header" href="#1-complete-duplicates">1. Complete Duplicates</a></h3>
+<p>Find rows that are <strong>exact copies</strong>:</p>
+<pre><code class="language-python">duplicates = df.duplicated()
+print(df[duplicates])
+</code></pre>
+<p>This flags rows that match all column values of a previous row. To include the first occurrence:</p>
+<pre><code class="language-python">df[df.duplicated(keep=False)]
+</code></pre>
+<h3 id="example-output"><a class="header" href="#example-output">Example Output:</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>first_name</th><th>last_name</th><th>address</th><th>height</th><th>weight</th></tr></thead><tbody>
+<tr><td>Alice</td><td>Smith</td><td>123 Main St</td><td>165</td><td>60</td></tr>
+<tr><td>Alice</td><td>Smith</td><td>123 Main St</td><td>165</td><td>60</td></tr>
+</tbody></table>
+</div>
+<h3 id="2-incomplete-duplicates"><a class="header" href="#2-incomplete-duplicates">2. Incomplete Duplicates</a></h3>
+<p>Find duplicates based on <strong>subset of columns</strong>:</p>
+<pre><code class="language-python">column_names = ["first_name", "last_name", "address"]
+duplicates = df.duplicated(subset=column_names, keep=False)
+print(df[duplicates])
+</code></pre>
+<h3 id="example-output-1"><a class="header" href="#example-output-1">Example Output:</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>first_name</th><th>last_name</th><th>address</th><th>height</th><th>weight</th></tr></thead><tbody>
+<tr><td>John</td><td>Doe</td><td>456 Elm Ave</td><td>180</td><td>80</td></tr>
+<tr><td>John</td><td>Doe</td><td>456 Elm Ave</td><td>179</td><td>82</td></tr>
+</tbody></table>
+</div>
+<h2 id="how-to-treat-duplicate-values"><a class="header" href="#how-to-treat-duplicate-values">How to Treat Duplicate Values?</a></h2>
+<h3 id="1-removing-complete-duplicates"><a class="header" href="#1-removing-complete-duplicates">1. Removing Complete Duplicates</a></h3>
+<pre><code class="language-python">df.drop_duplicates(inplace=True)
+</code></pre>
+<p>This keeps only the <strong>first occurrence</strong> of each duplicate row.</p>
+<p>You can customize:</p>
+<ul>
+<li><code>keep='last'</code>: keeps the <strong>last</strong> occurrence.</li>
+<li><code>keep=False</code>: drops <strong>all</strong> duplicates.</li>
+</ul>
+<h3 id="2-resolving-incomplete-duplicates-with-aggregation"><a class="header" href="#2-resolving-incomplete-duplicates-with-aggregation">2. Resolving Incomplete Duplicates with Aggregation</a></h3>
+<p>If some attributes differ, you may want to merge them using summary statistics:</p>
+<pre><code class="language-python">column_names = ["first_name", "last_name", "address"]
+summaries = {"height": "max", "weight": "mean"}
+df_cleaned = df.groupby(by=column_names).agg(summaries).reset_index()
+</code></pre>
+<h3 id="example-transformation"><a class="header" href="#example-transformation">Example Transformation:</a></h3>
+<p><strong>Original:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>first_name</th><th>last_name</th><th>address</th><th>height</th><th>weight</th></tr></thead><tbody>
+<tr><td>John</td><td>Doe</td><td>456 Elm Ave</td><td>180</td><td>80</td></tr>
+<tr><td>John</td><td>Doe</td><td>456 Elm Ave</td><td>179</td><td>82</td></tr>
+</tbody></table>
+</div>
+<p><strong>After aggregation:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>first_name</th><th>last_name</th><th>address</th><th>height</th><th>weight</th></tr></thead><tbody>
+<tr><td>John</td><td>Doe</td><td>456 Elm Ave</td><td>180</td><td>81.0</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="best-practices-1"><a class="header" href="#best-practices-1">Best Practices</a></h2>
+<ul>
+<li>Always inspect duplicates <strong>before</strong> removing them.</li>
+<li>Understand <strong>why</strong> duplicates occur — fixing the root cause is better than patching.</li>
+<li>Consider if duplicates contain <strong>additional information</strong> worth preserving (e.g., timestamps, different measurements).</li>
+</ul>
+<h2 id="bonus-count-of-duplicates"><a class="header" href="#bonus-count-of-duplicates">Bonus: Count of Duplicates</a></h2>
+<p>To check how often each duplicate appears:</p>
+<pre><code class="language-python">df[column_names].value_counts()
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="significance-tests"><a class="header" href="#significance-tests">Significance tests</a></h1>
+<h2 id="when-to-use-it"><a class="header" href="#when-to-use-it">When to use it</a></h2>
+<p>A significance test relies on two hypotheses: the null hypothesis (H<sub>0</sub>) and the alternative hypothesis (H<sub>a</sub>). It can be applied, for instance, to formally confirm if the average gaps found by two algorithms are statistically different. In such a case, H<sub>0</sub> states that <strong>there are no differences between the average gaps</strong>, and H<sub>a</sub> states the logical opposite, i.e., that <strong>there are differences between the average gaps</strong>.</p>
+<h2 id="a-few-tips"><a class="header" href="#a-few-tips">A few tips</a></h2>
+<h3 id="building-the-distribution-of-the-differences"><a class="header" href="#building-the-distribution-of-the-differences">Building the distribution of the differences</a></h3>
+<p>Suppose the samples, namely the average gaps found by algorithms A and B, are a = [250, 500, ..., 300], and b = [251, 480, ..., 350], respectively. Then, the distribution of the differences is a - b = [-1, 20, ..., -50].</p>
+<h3 id="normality-test"><a class="header" href="#normality-test">Normality test</a></h3>
+<p>Depending on the type of test one wishes to perform, a <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.normaltest.html">normality test</a> might be required. That is the case for parametric tests like the t-test. For nonparametric tests, such as the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html">Wilcoxon signed-rank test</a>, <strong>no assumptions are made on the samples</strong>, and the normality test is not necessary. The following diagram shows the type of test one must use based on a few characteristics of the data.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*620UIGQx3RVbZUsF76-Img.jpeg" alt="" /></p>
+<p>Although not strictly necessary, one can apply a normality test on a - b to confirm that it is not normally distributed and justify the choice of employing a nonparametric test.</p>
+<h2 id="wilcoxon-signed-rank-test"><a class="header" href="#wilcoxon-signed-rank-test">Wilcoxon signed-rank test</a></h2>
+<p>The Wilcoxon signed-rank test can either reject the null hypothesis in favor of the alternative hypothesis, or fail to reject H<sub>0</sub>. <strong>The latter does not mean that the null hypothesis is accepted</strong>.</p>
+<h2 id="example-of-an-article-with-significance-tests"><a class="header" href="#example-of-an-article-with-significance-tests">Example of an article with significance tests</a></h2>
+<p><a href="https://doi.org/10.1080/01605682.2017.1390528">Generating guitar solos by integer programming</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="oxford-math-classes"><a class="header" href="#oxford-math-classes">Oxford math classes</a></h1>
+<p>Oxford Mathematics offers a collection of math classes on YouTube. You can explore the entire playlist <a href="https://www.youtube.com/watch?v=nYM0gaPU-8g&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=3">here</a>.</p>
+<h2 id="calculus"><a class="header" href="#calculus">Calculus</a></h2>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=I3GWzXRectE&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=10&amp;pp=iAQB">Intoduction to Calculus</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=Bjnj8-HMjIA&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=11&amp;pp=iAQB">Lecture 1 - Introduction to Multivariable Calculus</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=lwrOd3OQOGA&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=12">Lecture 2 - Multiple Integrals in 2D</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=5Y28sFyF9oY&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=13">Lecture 3 - Volume Integrals</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=8UgL2fQfDNI&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=14">Lecture 4 - Surface Integrals</a></p>
+</li>
+</ul>
+<h2 id="probability"><a class="header" href="#probability">Probability</a></h2>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=53nZY5udKHQ&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=15">Lecture 1 - Events, probabilities &amp; elementary combinatorics </a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=Vr_-47U_TAc&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=16">Lecture 2 - Events, probabilities and the axiomatic setup</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=nUOX9ea_VaM&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=17">Lecture 3 - Conditional probabilities</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=g2IJYq5GBFM&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=18">Lecture 4 - Independence, discrete random variables</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=ABFwPtjOn6M&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=19">Lecture 5 - Some classical distributions, expectation </a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=dbLLdbX-JFM&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=20">Lecture 6 - Joint and conditional distributions </a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=ONZSDsrRg4E&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=72&amp;pp=iAQB">Convergence Theorems for Markov Chanis</a></p>
+</li>
+</ul>
+<h2 id="graph-theory"><a class="header" href="#graph-theory">Graph Theory</a></h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Q9vckauJW_0&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=58">Shortest Paths</a></li>
+</ul>
+<h2 id="set-theory"><a class="header" href="#set-theory">Set Theory</a></h2>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=g7zyXk0XJt4&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=86&amp;pp=iAQB">What is Set Theory and what is it for?</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=gxm1Ur_Be0s&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=87&amp;pp=iAQB">Russell's Paradox</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=qrltuEzDhxI&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=88&amp;pp=iAQB">The first few axioms</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=4cPGKh4xubI&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=89&amp;pp=iAQB">Classes, sets and proper classes</a></p>
+</li>
+</ul>
+<h2 id="linear-algebra"><a class="header" href="#linear-algebra">Linear Algebra</a></h2>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=MieZJ0bxv7k&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=30&amp;pp=iAQB">Linear Algebra I: Systems of linear equations</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=Yj0rMy6MBMk&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=31&amp;pp=iAQB">Linear Algebra I: Matrix algebra</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=pQhVDRojC1U&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=32&amp;pp=iAQB">Linear Algebra II</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=100Im_72xl4&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=33&amp;pp=iAQB">Linear Algebra II - Eigenvectors &amp; eigenvalues</a></p>
+</li>
+</ul>
+<h2 id="differential-equations"><a class="header" href="#differential-equations">Differential Equations</a></h2>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=0mGAh2GlD6I&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=50&amp;pp=iAQB">Differential equations I</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=fsy6UNZei0k&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=51&amp;pp=iAQB">Differential Equations I - Maximum Principle</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=8YV_VjtxaXo&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=52&amp;pp=iAQB">Differential Equations II</a></p>
+</li>
+</ul>
+<h2 id="networks"><a class="header" href="#networks">Networks</a></h2>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=TQKgB0RnjeY&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=94&amp;pp=iAQB">Lecture 1</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=zF5nVMG-Big&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=95&amp;pp=iAQB">Lecture 2</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=cq-rAUwQoaM&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=96&amp;pp=iAQB">Lecture 3</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=W_A6NbqpTW8&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=97&amp;pp=iAQB">Lecture 4</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=7p9ImBpxlG8&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=98&amp;pp=iAQB">Lecture 5</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=cctHyGe5D_k&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=99&amp;pp=iAQB">Lecture 6</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=---gzhcMEHA&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=100&amp;pp=iAQB">Lecture 7</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=67xLOcA5Qbs&amp;list=PL4d5ZtfQonW0A4VHeiY0gSkX1QEraaacE&amp;index=101&amp;pp=iAQB">Lecture 8</a></p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><p>The use of algorithms for problem solving is almost mandatory in the field of optimization. Algorithms describe the sequence of step one must take to solve a problem, and as such, the way they are presented in scientific writing can highly impact understanding. Fortunately, LaTeX provides routines for neatly presenting both pseudocode and actual code. For instance, many packages allow writing pseudocode through the <a href="https://www.overleaf.com/learn/latex/Algorithms"><code>algorithm</code></a> environment. For snippets of code in real programming languages, one may resort to <a href="https://pt.overleaf.com/learn/latex/Code_Highlighting_with_minted"><code>minted</code></a> or <a href="https://pt.overleaf.com/learn/latex/Code_listing"><code>verbatim</code> and <code>listings</code></a>.</p>
+<h2 id="pseudocode"><a class="header" href="#pseudocode">Pseudocode</a></h2>
+<p>Package <a href="https://www.overleaf.com/learn/latex/Algorithms#The_algorithm2e_package"><code>algorithm2e</code></a> is frequently used for pseudocode. It is straightforward to use for programmers, as it resembles real code. It is also highly customizable and flexible. In the example below, the flags <code>vlined</code> and <code>linesnumbered</code> were used to add vertical lines and line numbering. As with equations, the <code>label</code> command can be used to assign labels to each line, so they can be referenced later in the text. It is also possible to use the <code>tcc</code> and <code>tcp</code> commands to add comments to the pseudocode.</p>
+<pre><code class="language-latex">\usepackage{mathtools}
+\usepackage[ruled, vlined, linesnumbered, english, onelanguage]{algorithm2e}
+
+...
+
+\begin{algorithm}[ht]
+\DontPrintSemicolon
+\KwData{An array of numbers $A$}
+\KwResult{A sorted array $A'$}
+\Begin{
+    $A' \gets A$ \tcp{Make a copy of A}
+    \For{$j = 1,\dots,n$}{  \label{line:bubblefor1}
+        \For{$i=0,\dots,n-1$}
+        { \label{line:bubblefor2}
+            \If{$A'[i] &gt; A'[i+1]$}{ \label{line:bubbleif}
+                \tcc{Swapping A'[i] and A'[i + 1] through temporary variable}
+                $\text{temp} \gets A'[i]$ \label{line:swap1} \;
+                $A'[i] \gets A'[i+1]$  \;
+                $A'[i+1] \gets \text{temp} $ \label{line:swap2} \;
+            }
+        }
+    }
+    \Return{$A'$}
+}
+\caption{\textsc{Bubble Sort}\label{alg:bubblesort}}
+\end{algorithm}
+
+Algorithm \ref{alg:bubblesort} describes an implementaiton of Bubble Sort.
+Lines \eqref{line:bubblefor1} and \eqref{line:bubblefor2} iterate through all pairs of elements in $A'$.
+Line \eqref{line:bubbleif} checks if $A'[i]$ is greater than $A'[i+1]$, in which case these elements are swapped in lines \eqref{line:swap1}--\eqref{line:swap2}.
+</code></pre>
+<img src="latex/./algorithms/eq6.png" width="70%" height="70%">
+<p>In case multiple procedures or functions are used and defined in the same pseudocode, use the <code>\SetFwFunction</code> and <code>\SetKwProg</code> commands. The former creates a macro for a function that may be called multiple times through the code. The latter is used if one wishes to create a block of code for each procedure. Both commands were used in the following snippet.</p>
+<pre><code class="language-latex">\begin{algorithm}[ht]
+\DontPrintSemicolon
+\KwData{A graph $G$, weight function $w$ and source $s$}
+\KwResult{Predecessors $v.\pi$ for each $v \in G.V$ }
+    \SetKwFunction{FDijkstra}{\textsc{Dijkstra}}
+    \SetKwFunction{FExtract}{\textsc{Extract-Min}}
+    \SetKwFunction{FRelax}{\textsc{Relax}}
+    \SetKwFunction{FInit}{\textsc{Initialize-Single-Source}}
+    \SetKwProg{Proc}{Procedure}{ is}{end}
+    \Proc{\FDijkstra{$G, w, s$}}{
+        \FInit{$G,s$} \;
+        $S \gets \emptyset $ \;
+        $Q \gets G.V $ \;
+        \While{$Q \neq \emptyset$}{
+            $u \gets \FExtract$ \;
+            $S \gets S \cup \{u\}$ \;
+            \For{each vertex $v \in G.Adj[u]$}{
+                \FRelax{$u,v,w$}
+            }
+        }
+    }
+    \Proc{\FRelax{$u,v,w$}}{
+        \If{$v.d &gt; u.d + w(u,v)$}{
+        $v.d \gets u.d + w(u,v)$ \;
+        $v.\pi \gets u$
+        }
+    }
+\caption{\textsc{Dijkstra}\label{alg:dijkstra}}
+\end{algorithm}
+</code></pre>
+<img src="latex/./algorithms/eq7.png" width="70%" height="70%">
+<h2 id="real-code"><a class="header" href="#real-code">Real code</a></h2>
+<p>When it comes to showing real code within the text, the <code>listings</code> package is highly recommended, as it works quite well with most programming languages. One may also specify settings such as font size, background colors and framing as they wish. These settings can then be grouped into a "style" so they can be reused throughout the text, as shown below with the <code>cplusplusListStyle</code>.</p>
+<pre><code class="language-latex">\usepackage{listings}
+\usepackage[scaled=0.9]{DejaVuSansMono}
+\lstdefinestyle{cplusplusListStyle}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  language=C++,
+  frame=tb,
+  showstringspaces=false,
+  tabsize=2,
+  %basicstyle=\footnotesize,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+numbers=left,
+stepnumber=1
+}
+
+% ...
+
+\begin{lstlisting}[style=cplusplusListStyle]
+// Your First C++ Program
+
+#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Hello World!";
+    return 0;
+}
+\end{lstlisting}
+</code></pre>
+<img src="latex/./algorithms/eq8.png" width="70%" height="70%">
+<p>For more minimalist (no syntax highlighting) and simple snippets of code, try the <a href="latex/%5Bhttps://www.overleaf.com/learn/latex/Code_Highlighting_with_minted%5D(https://pt.overleaf.com/learn/latex/Code_listing#The_verbatim_environment)"><code>verbatim</code></a> environment. For an alternative to <code>listings</code>, try <a href="https://pt.overleaf.com/learn/latex/Code_Highlighting_with_minted"><code>minted</code></a>, which works pretty similarly. Unlike <code>listings</code>, however, the <code>minted</code> package contains ready-made syntax highlighting for most famous programming languages.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>Being able to write mathematical expressions with plain text is one of LateX's greatest features, and makes it well-suited for scientific writing. For instance, adding</p>
+<pre><code class="language-latex">$S = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} \alpha^k x_k + \frac{\log{i}}{i} \right) $
+</code></pre>
+<p>to a plain LaTeX file yields the expression $$S = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} \alpha^k x_k + \frac{\log{i}}{i} \right). $$ Frequently used mathematical objects (e.g., matrices, vectors, sets, piecewise functions) can be easily written likewise.</p>
+<p>For an overall introduction to latex math, refer to <a href="https://www.overleaf.com/learn/latex/Mathematical_expressions">Overleaf guides</a>.</p>
+<h2 id="mathematical-formulations"><a class="header" href="#mathematical-formulations">Mathematical formulations</a></h2>
+<p>Mathematical formulations are commonly used to solve optimization problems. As such, one is often faced with the task to cleanly present them in scientific reports. Many times, a mathematical formulation can be seen as a collection of equations, inequations and expressions that are deeply related. Therefore, care must be taken to correctly organize and align such expressions, so they are presented in an easy to follow fashion.</p>
+<p>The following example shows how one may write a formulation for the Traveling Salesman Problem in LaTeX. A label can be assigned to each equation with the <code>\label{}</code> command. Labeled equations can be referenced later in the text by using the <code>\eqref{}</code> command. By default, equations are automatically numbered. Alternatively, the <code>\tag{}</code> command can be used to assign a custom name to an equation instead of a number.  All references to an equation will work as a hyperlink if the package <code>hyperref</code> is imported.</p>
+<pre><code class="language-latex">\begin{align}
+	\min &amp; \sum_{i \in V, j &gt; i} c_{ij} x_{ij}  \tag{TSP}\label{eq:probTSP} \\
+	\text{s.t. } &amp; \sum_{j&gt;i} x_{ij} + \sum_{j&lt;i} x_{ji} = 2, i \in V, \label{eq:degreeConstraintsTSP} \\
+	&amp; \sum_{i \in S}\sum_{j \notin S} x_{ij} \geq 1, S \subset V, S \neq \emptyset, \label{eq:subtourConstraintsTSP} \\
+	&amp; x_{ij} \in \{0,1\}, i \in V, j &gt; i. \label{eq:integralityConstraintsTSP}
+\end{align}
+Problem \eqref{eq:probTSP} aims to minimize the total traveling cost.
+Constraints \eqref{eq:degreeConstraintsTSP} force all vertices to have degree 2.
+Constraints \eqref{eq:subtourConstraintsTSP} ensure connectivity.
+Finally, constraints \eqref{eq:integralityConstraintsTSP} describe the domain of variables $x_{ij}$
+</code></pre>
+<img src="latex/./equations/eq1.png" width="70%" height="70%">
+<p>Much of how formulations are actually structured is subject to one's liking. In the previous example, the <code>&amp;</code> operator was used to <a href="https://www.overleaf.com/learn/latex/Aligning_equations_with_amsmath">align equations</a> to the left. The following snippet shows an alternative way to present the same formulation, in such a way that expressions are more evenly distributed, and the objective function is centered.</p>
+<pre><code class="language-latex"> \begin{align}
+    \text{min} \sum_{i \in V, j &gt; i} c_{ij} x_{ij}  \tag{TSP}\label{eq:probTSP}
+ \end{align}
+\begin{align}
+	\text{s.t. } \sum_{j&gt;i} x_{ij} + \sum_{j&lt;i} x_{ji} = 2 &amp; &amp; i \in V \label{eq:degreeConstraintsTSP} \\
+	 \sum_{i \in S}\sum_{j \notin S} x_{ij} \geq 1 &amp; &amp; S \subset V, S \neq \emptyset \label{eq:subtourConstraintsTSP} \\
+	 x_{ij} \in \{0,1\} &amp; &amp; i \in V, j &gt; i \label{eq:integralityConstraintsTSP}
+\end{align}
+Problem \eqref{eq:probTSP} aims to minimize the total traveling cost.
+Constraints \eqref{eq:degreeConstraintsTSP} force all vertices to have degree 2.
+Constraints \eqref{eq:subtourConstraintsTSP} ensure connectivity.
+Finally, constraints \eqref{eq:integralityConstraintsTSP} describe the domain of variables $x_{ij}$
+</code></pre>
+<img src="latex/./equations/eq2.png" width="70%" height="70%">
+<p>Further yet, one may opt to use specialized packages. One such package is <code>optidef</code>, which allows us to write the formulation for optimization problems as in the example below. However, mastering default commands such as <code>align{}</code> and <code>equation{}</code> is highly recommended, as they give us much more control.</p>
+<pre><code class="language-latex">\usepackage{optidef}
+
+...
+
+\begin{maxi}
+    {}{\sum_{i=1}^{m}\sum_{j=1}^{n}p_{ij}x_{ij}}
+    {}{}
+    \addConstraint{\sum_{j=1}^n w_{ij} x_{ij}} {\leq t_i}{\quad i=1,\dots,n}
+    \addConstraint{\sum_{i=1}^m x_{ij}} {= 1}{\quad j=1,\dots,m}
+    \addConstraint{x_{ij}} {\in \{0,1\}} {\quad i=1,\dots,m,j=1,\dots,n}
+\end{maxi}
+</code></pre>
+<img src="latex/./equations/eq5.png" width="70%" height="70%">
+<h2 id="tips"><a class="header" href="#tips">Tips</a></h2>
+<ul>
+<li>If your equation is too big and doesn't fit the line width, split it with <a href="https://tex.stackexchange.com/questions/358608/split-equations-inside-the-align-environment"><code>split{}</code></a>. You can also try <code>multline{}</code>.</li>
+<li>If you are running out of pages, try to reduce equation font size by using smaller fonts (e.g., <code>\scriptsize</code>, <code>\footnotesize</code>), or by using <code>scalebox{}</code>, as in <a href="https://tex.stackexchange.com/questions/60453/reducing-font-size-in-equation">this answer</a>.</li>
+<li>Parenthesis (<code>()</code>) have fixed size. For automatic scaling, use <a href="https://www.overleaf.com/learn/latex/Brackets_and_Parentheses"><code>\left(</code> and <code>\right)</code></a>. The same applies to brackets, braces, ceil, floor, absolute value, etc.</li>
+<li>If there is a variable in your paper whose name you have not yet decided, consider using <a href="https://francopasut.medium.com/latex-create-and-use-variable-names-6dedaa753bc1"><code>\newcommand</code></a> as a placeholder so you can decide it later.</li>
+<li><a href="http://am121.seas.harvard.edu/site/wp-content/uploads/2014/08/latex_snippets.pdf">This document</a> contains several LaTeX snippets that pertain to mathematical programming.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><p>The main purpose of the <a href="https://linorg.usp.br/CTAN/macros/latex/contrib/preview/preview.pdf">preview</a> package is to extract environments as images. To use it, the following line must be added to the preamble of the document.</p>
+<pre><code class="language-latex">\usepackage[active, tightpage]{preview}
+</code></pre>
+<p>where options <code>active</code> and <code>tightpage</code> are specified to activate the package, and to produce separate dimensions for every page, respectively.</p>
+<p>The macro <code>\PreviewEnvironment</code> sets which environments must produce preview images.</p>
+<pre><code class="language-latex">\PreviewEnvironment{tikzpicture}
+\PreviewEnvironment{tabular}
+</code></pre>
+<p>The code snippet above, for instance, makes all <code>tikzpicture</code> and <code>tabular</code> environments in the document produce images.</p>
+<p>Full example:</p>
+<pre><code class="language-latex">\documentclass{article}
+
+\usepackage{tikz}
+\usepackage[active, tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\PreviewEnvironment{tabular}
+
+\begin{document}
+
+\begin{figure}
+    \begin{tikzpicture}
+        \draw[step=1cm,gray,very thin] (-1,-1) grid (4,4);
+
+        \draw[thick,-&gt;] (0,0) -- (3.5,0);
+        \draw[thick,-&gt;] (0,0) -- (0,3.5);
+
+        \foreach \x in {0,1,2,3}
+            \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+        \foreach \y in {0,1,2,3}
+            \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+    \end{tikzpicture}
+\end{figure}
+
+\begin{center}
+    \begin{tabular}{ |c|c|c| }
+        \hline
+        cell1 &amp; cell2 &amp; cell3 \\
+        cell4 &amp; cell5 &amp; cell6 \\
+        cell7 &amp; cell8 &amp; cell9 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\end{document}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

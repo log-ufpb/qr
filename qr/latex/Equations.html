@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Equations - Quick Reference</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Quick Reference</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Being able to write mathematical expressions with plain text is one of LateX's greatest features, and makes it well-suited for scientific writing. For instance, adding</p>
+<pre><code class="language-latex">$S = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} \alpha^k x_k + \frac{\log{i}}{i} \right) $
+</code></pre>
+<p>to a plain LaTeX file yields the expression $$S = \sum_{i=1}^{m} \left( \sum_{j=1}^{n} \alpha^k x_k + \frac{\log{i}}{i} \right). $$ Frequently used mathematical objects (e.g., matrices, vectors, sets, piecewise functions) can be easily written likewise.</p>
+<p>For an overall introduction to latex math, refer to <a href="https://www.overleaf.com/learn/latex/Mathematical_expressions">Overleaf guides</a>.</p>
+<h2 id="mathematical-formulations"><a class="header" href="#mathematical-formulations">Mathematical formulations</a></h2>
+<p>Mathematical formulations are commonly used to solve optimization problems. As such, one is often faced with the task to cleanly present them in scientific reports. Many times, a mathematical formulation can be seen as a collection of equations, inequations and expressions that are deeply related. Therefore, care must be taken to correctly organize and align such expressions, so they are presented in an easy to follow fashion.</p>
+<p>The following example shows how one may write a formulation for the Traveling Salesman Problem in LaTeX. A label can be assigned to each equation with the <code>\label{}</code> command. Labeled equations can be referenced later in the text by using the <code>\eqref{}</code> command. By default, equations are automatically numbered. Alternatively, the <code>\tag{}</code> command can be used to assign a custom name to an equation instead of a number.  All references to an equation will work as a hyperlink if the package <code>hyperref</code> is imported.</p>
+<pre><code class="language-latex">\begin{align}
+	\min &amp; \sum_{i \in V, j &gt; i} c_{ij} x_{ij}  \tag{TSP}\label{eq:probTSP} \\
+	\text{s.t. } &amp; \sum_{j&gt;i} x_{ij} + \sum_{j&lt;i} x_{ji} = 2, i \in V, \label{eq:degreeConstraintsTSP} \\
+	&amp; \sum_{i \in S}\sum_{j \notin S} x_{ij} \geq 1, S \subset V, S \neq \emptyset, \label{eq:subtourConstraintsTSP} \\
+	&amp; x_{ij} \in \{0,1\}, i \in V, j &gt; i. \label{eq:integralityConstraintsTSP}
+\end{align}
+Problem \eqref{eq:probTSP} aims to minimize the total traveling cost.
+Constraints \eqref{eq:degreeConstraintsTSP} force all vertices to have degree 2.
+Constraints \eqref{eq:subtourConstraintsTSP} ensure connectivity.
+Finally, constraints \eqref{eq:integralityConstraintsTSP} describe the domain of variables $x_{ij}$
+</code></pre>
+<img src="./equations/eq1.png" width="70%" height="70%">
+<p>Much of how formulations are actually structured is subject to one's liking. In the previous example, the <code>&amp;</code> operator was used to <a href="https://www.overleaf.com/learn/latex/Aligning_equations_with_amsmath">align equations</a> to the left. The following snippet shows an alternative way to present the same formulation, in such a way that expressions are more evenly distributed, and the objective function is centered.</p>
+<pre><code class="language-latex"> \begin{align}
+    \text{min} \sum_{i \in V, j &gt; i} c_{ij} x_{ij}  \tag{TSP}\label{eq:probTSP}
+ \end{align}
+\begin{align}
+	\text{s.t. } \sum_{j&gt;i} x_{ij} + \sum_{j&lt;i} x_{ji} = 2 &amp; &amp; i \in V \label{eq:degreeConstraintsTSP} \\
+	 \sum_{i \in S}\sum_{j \notin S} x_{ij} \geq 1 &amp; &amp; S \subset V, S \neq \emptyset \label{eq:subtourConstraintsTSP} \\
+	 x_{ij} \in \{0,1\} &amp; &amp; i \in V, j &gt; i \label{eq:integralityConstraintsTSP}
+\end{align}
+Problem \eqref{eq:probTSP} aims to minimize the total traveling cost.
+Constraints \eqref{eq:degreeConstraintsTSP} force all vertices to have degree 2.
+Constraints \eqref{eq:subtourConstraintsTSP} ensure connectivity.
+Finally, constraints \eqref{eq:integralityConstraintsTSP} describe the domain of variables $x_{ij}$
+</code></pre>
+<img src="./equations/eq2.png" width="70%" height="70%">
+<p>Further yet, one may opt to use specialized packages. One such package is <code>optidef</code>, which allows us to write the formulation for optimization problems as in the example below. However, mastering default commands such as <code>align{}</code> and <code>equation{}</code> is highly recommended, as they give us much more control.</p>
+<pre><code class="language-latex">\usepackage{optidef}
+
+...
+
+\begin{maxi}
+    {}{\sum_{i=1}^{m}\sum_{j=1}^{n}p_{ij}x_{ij}}
+    {}{}
+    \addConstraint{\sum_{j=1}^n w_{ij} x_{ij}} {\leq t_i}{\quad i=1,\dots,n}
+    \addConstraint{\sum_{i=1}^m x_{ij}} {= 1}{\quad j=1,\dots,m}
+    \addConstraint{x_{ij}} {\in \{0,1\}} {\quad i=1,\dots,m,j=1,\dots,n}
+\end{maxi}
+</code></pre>
+<img src="./equations/eq5.png" width="70%" height="70%">
+<h2 id="tips"><a class="header" href="#tips">Tips</a></h2>
+<ul>
+<li>If your equation is too big and doesn't fit the line width, split it with <a href="https://tex.stackexchange.com/questions/358608/split-equations-inside-the-align-environment"><code>split{}</code></a>. You can also try <code>multline{}</code>.</li>
+<li>If you are running out of pages, try to reduce equation font size by using smaller fonts (e.g., <code>\scriptsize</code>, <code>\footnotesize</code>), or by using <code>scalebox{}</code>, as in <a href="https://tex.stackexchange.com/questions/60453/reducing-font-size-in-equation">this answer</a>.</li>
+<li>Parenthesis (<code>()</code>) have fixed size. For automatic scaling, use <a href="https://www.overleaf.com/learn/latex/Brackets_and_Parentheses"><code>\left(</code> and <code>\right)</code></a>. The same applies to brackets, braces, ceil, floor, absolute value, etc.</li>
+<li>If there is a variable in your paper whose name you have not yet decided, consider using <a href="https://francopasut.medium.com/latex-create-and-use-variable-names-6dedaa753bc1"><code>\newcommand</code></a> as a placeholder so you can decide it later.</li>
+<li><a href="http://am121.seas.harvard.edu/site/wp-content/uploads/2014/08/latex_snippets.pdf">This document</a> contains several LaTeX snippets that pertain to mathematical programming.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../latex/Algorithms.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../latex/Extract-as-images.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../latex/Algorithms.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../latex/Extract-as-images.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

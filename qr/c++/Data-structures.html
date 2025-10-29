@@ -1,0 +1,526 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Data structures - Quick Reference</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Quick Reference</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="vector"><a class="header" href="#vector">Vector</a></h2>
+<p><strong>They store a group of elements, sequentially.</strong></p>
+<ul>
+<li><a href="https://cplusplus.com/reference/vector/vector/">Part of the C++ STL</a></li>
+<li>Implementation: Arrays that can be reallocated in case they exceed a specific size.</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Insertion of elements at the end of the vector: \(O(1)\)</li>
+<li>Insertion of elements in the middle of the vector: \(O(n)\)</li>
+<li>Removal of elements  at the end of the vector: \(O(1)\)</li>
+<li>Removal of elements in the middle of the vector: \(O(n)\)</li>
+<li>Search for an element in a certain position: \(O(1)\)</li>
+<li>Search for an element with a certain value: \(O(n)\)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="priority-queues"><a class="header" href="#priority-queues">Priority queues</a></h2>
+<p><strong>They store a group of elements sequentially, and efficiently obtain its maximum or minimum value.</strong></p>
+<ul>
+<li><a href="https://cplusplus.com/reference/queue/priority_queue/">Part of the C++ STL</a></li>
+<li>Implementation: Max/Min Heap</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Insertion of any element: \(O(\log n)\)</li>
+<li>Removal of any element: \(O(\log n)\)</li>
+<li>Search for the maximum/minimum value: \(O(1)\)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="set"><a class="header" href="#set">Set</a></h2>
+<p><strong>They efficiently store a group of non-repeating elements.</strong></p>
+<ul>
+<li><a href="https://cplusplus.com/reference/set/set/">Part of the C++ STL</a></li>
+<li>Implementation: Binary Search Trees</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Insertion of any element: \(O(\log n)\)</li>
+<li>Removal of any element: \(O(\log n)\)</li>
+<li>Search for an element with a certain value: \(O(\log n)\)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="map"><a class="header" href="#map">Map</a></h2>
+<p><strong>They store elements of type <code>&lt;key, value&gt;</code> efficiently avoiding key repetition (repetition of values is possible).</strong></p>
+<ul>
+<li><a href="https://cplusplus.com/reference/map/map/">Part of the C++ STL</a></li>
+<li>Implementation: Binary Search Trees</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Insertion of any element: \(O(\log n)\)</li>
+<li>Removal of any element: \(O(\log n)\)</li>
+<li>Search for an element with a certain key: \(O(\log n)\)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="disjoint-set-union"><a class="header" href="#disjoint-set-union">Disjoint Set Union</a></h2>
+<p><strong>This data structure stores a collection of sets without element overlap. It allows for efficient operations to create and join sets, as well as checking if two elements are part of the same set. Disjoint Set Union is used in efficient implementations of the Kruskal algorithm for finding the Minimum Spanning Tree of a graph.</strong></p>
+<ul>
+<li>Not a part of the C++ STL</li>
+<li>Implementation: Vectors or Arrays</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Create a set: \(O(1)\)</li>
+<li>Join two sets: \(\approx O(1)\)</li>
+<li>Search for a set of a certain element: \(\approx O(1)\)</li>
+<li>Check if two elements are part of the same set: \(\approx O(1)\)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><strong>Example:</strong></p>
+<img src="https://cp-algorithms.com/data_structures/DSU_example.png" align="center">
+<pre><code class="language-C++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+class Disjointed_set_union{
+private:
+    struct Element{
+        int root;
+        int rank;
+
+        Element() = default;
+        Element(int root) : root(root), rank(1){}
+    };
+
+    vector&lt;Element&gt; map;
+public:
+    Disjointed_set_union(int total_elements){
+        map.resize(total_elements);
+    }
+
+    void make_set(int value){
+        int last_idx = map.size();
+        map[value] = Element(value);
+    }
+
+    int find(int value){
+        if(map[value].root == value){
+            return value;
+        }
+        return map[value].root = find(map[value].root);
+    }
+
+    void union_sets(int value_1, int value_2){
+        int root_1 = find(value_1);
+        int root_2 = find(value_2);
+
+        if (root_1 != root_2){
+            int rank_1 = map[root_1].rank;
+            int rank_2 = map[root_2].rank;
+
+            if(rank_1 &gt; rank_2){
+                map[root_2].root = root_1;
+            }else if(rank_1 &lt; rank_2){
+                map[root_1].root = root_2;
+            }else{
+                map[root_2].root = root_1;
+                map[root_1].rank++;
+            }
+        }
+    }
+
+    bool is_same_set(int value_1, int value_2){
+        return find(value_1) == find(value_2);
+    }
+};
+
+int main(){
+    // The elements are numbered from 1 to 4 to match the figure above
+    int max_elements = 5;
+    Disjointed_set_union dsu(max_elements); // Max of elements is 4
+    dsu.make_set(1);
+    dsu.make_set(2);
+    dsu.make_set(3);
+    dsu.make_set(4);
+
+    for(int i = 1; i &lt; max_elements; ++i){
+        for(int j = i+1; j &lt; max_elements; ++j){
+            if (dsu.is_same_set(i, j)){
+                printf("%d and %d are in the same set\n", i, j);
+            }else{
+                printf("%d and %d are not in the same set\n", i, j);
+            }
+        }
+    }
+    printf("\n ------------- \n\n");
+
+    dsu.union_sets(1, 2);
+
+    for(int i = 1; i &lt; max_elements; ++i){
+        for(int j = i+1; j &lt; max_elements; ++j){
+            if (dsu.is_same_set(i, j)){
+                printf("%d and %d are in the same set\n", i, j);
+            }else{
+                printf("%d and %d are not in the same set\n", i, j);
+            }
+        }
+    }
+    printf("\n ------------- \n\n");
+
+    dsu.union_sets(3, 4);
+
+    for(int i = 1; i &lt; max_elements; ++i){
+        for(int j = i+1; j &lt; max_elements; ++j){
+            if (dsu.is_same_set(i, j)){
+                printf("%d and %d are in the same set\n", i, j);
+            }else{
+                printf("%d and %d are not in the same set\n", i, j);
+            }
+        }
+    }
+    printf("\n ------------- \n\n");
+
+    dsu.union_sets(1, 3);
+
+    for(int i = 1; i &lt; max_elements; ++i){
+        for(int j = i+1; j &lt; max_elements; ++j){
+            if (dsu.is_same_set(i, j)){
+                printf("%d and %d are in the same set\n", i, j);
+            }else{
+                printf("%d and %d are not in the same set\n", i, j);
+            }
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p>It is possible to use <code>unordered_map</code> instead of <code>vector</code> for a more general implementation.</p>
+<h2 id="graphs-adjacency-list"><a class="header" href="#graphs-adjacency-list">Graphs (adjacency list)</a></h2>
+<p><strong>They represent sparse graphs when it is necessary to know which arcs touch a certain vertex. This data structure is efficient in memory spaces when compared to other implementations (e.g., adjacency matrix). Moreover, they can be more efficient, time-wise, for algorithms such as breadth-first search and depth-first search.</strong></p>
+<ul>
+<li>Not a part of the C++ STL</li>
+<li>Implementation: Vector of vectors</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Insertion of elements at the end of the vector: \(O(1)\)</li>
+<li>Removal of elements  at the end of the vector: \(O(1)\)</li>
+<li>Check the existence of an arc between any two vertices: \(O(n)\)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example:</strong></p>
+<img src="https://www.techiedelight.com/wp-content/uploads/Eulerian-Cycle-in-Directed-Graph.png" align="center" width=33% height=33%>
+<pre><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;vector&gt;
+using namespace std;
+
+int main(){
+    int total_nodes = 4;
+    vector&lt;vector&lt;int&gt;&gt; graph(total_nodes); // initialise with 4 empty vectors
+
+    graph[0].push_back(1); // adds an arc from 0 to 1
+    graph[1].push_back(2); // adds an arc from 1 to 2
+    graph[1].push_back(4); // adds an arc from 1 to 4
+    graph[2].push_back(3); // adds an arc from 2 to 3
+    graph[3].push_back(0); // adds an arc from 3 to 0
+    graph[3].push_back(1); // adds an arc from 3 to 1
+    graph[4].push_back(3); // adds an arc from 4 to 3
+
+
+    // iterate over the arcs from each vertex
+    for(int i = 0; i &lt; total_nodes; ++i){
+        for(auto j : graph[i]){
+            printf("There is an arc from %d to %d\n", i, j);
+        }
+    }
+    return 0;
+}
+</code></pre>
+<hr />
+<h2 id="graphs-adjacency-matrix"><a class="header" href="#graphs-adjacency-matrix">Graphs (adjacency matrix)</a></h2>
+<p><strong>They represent dense graphs when it is necessary to know if there is an arc between any two vertices or its cost in weighted graphs.</strong></p>
+<ul>
+<li>Not a part of the C++ STL</li>
+<li>Implementation: Array of arrays or vector of vectors. It is important it is a matrix \(n \times n\).</li>
+<li>Time complexity for the main operations:
+<ul>
+<li>Insertion of an arc: \(O(1)\)</li>
+<li>Removal of an arc: \(O(1)\)</li>
+<li>Changing an arc: \(O(1)\)</li>
+<li>Check the existence of an arc between any two vertices: \(O(1)\)</li>
+<li>Obtain the cost of an arc between any two vertices: \(O(1)\)</li>
+<li>Insertion of a vertex costs the same as a matrix reallocation for an array of arrays or the vertex insertion in each vector when implementing this structure as a vector of vectors.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example:</strong></p>
+<img src="https://ucarecdn.com/a67cb888-aa0c-424b-8c7f-847e38dd5691/" align="center" width=33% height=33%>
+<pre><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;vector&gt;
+using namespace std;
+
+int main(){
+    int total_nodes = 5;
+    int graph_arr[total_nodes][total_nodes] = {
+                                           {0, 3, 0, 7, 8},
+                                           {3, 0, 1, 4, 0},
+                                           {0, 1, 0, 2, 0},
+                                           {7, 4, 2, 0, 3},
+                                           {8, 0, 0, 3, 0}
+                                          };
+
+    // iterate over the vertices
+    for(int i = 0; i &lt; total_nodes; ++i){
+       for(int j = i+1; j &lt; total_nodes; ++j){
+           if(graph_arr[i][j])
+              printf("There is an edge from %d to %d with cost: %d\n", i, j, graph_arr[i][j]);
+        }
+    }
+    printf("\n-----------------------\n\n");
+    vector&lt;vector&lt;int&gt;&gt; graph_vec {
+                                    {0, 3, 0, 7, 8},
+                                    {3, 0, 1, 4, 0},
+                                    {0, 1, 0, 2, 0},
+                                    {7, 4, 2, 0, 3},
+                                    {8, 0, 0, 3, 0}
+                                   };
+
+    // iterate over the vertices
+    for(int i = 0; i &lt; total_nodes; ++i){
+       for(int j = i+1; j &lt; total_nodes; ++j){
+           if(graph_vec[i][j])
+              printf("There is an edge from %d to %d with cost: %d\n", i, j, graph_vec[i][j]);
+        }
+    }
+    return 0;
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../introduction/introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../c++/Libraries.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../introduction/introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../c++/Libraries.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
