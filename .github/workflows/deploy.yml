@@ -38,10 +38,10 @@ jobs:
       - name: Prepare combined site directory
         run: |
           mkdir _site
-          mv qr-book/book _site/qr-book
-          mv qr-dev/book _site/qr-dev
-          mv qr-algorithms/book _site/qr-algorithms
-          mv qr-modelling/book _site/qr-modelling
+          mv qr-book/book _site/book
+          mv qr-dev/book _site/dev
+          mv qr-algorithms/book _site/algorithms
+          mv qr-modelling/book _site/modelling
 
           # Optional: create a root index page
           cat > _site/index.html <<'EOF'
@@ -50,10 +50,10 @@ jobs:
             <body>
               <h1>Quick Reference Books</h1>
               <ul>
-                <li><a href="qr-book/">QR Book</a></li>
-                <li><a href="qr-dev/">QR Dev</a></li>
-                <li><a href="qr-algorithms/">QR Algorithms</a></li>
-                <li><a href="qr-modelling/">QR Modelling</a></li>
+                <li><a href="book/">QR Book</a></li>
+                <li><a href="dev/">QR Dev</a></li>
+                <li><a href="algorithms/">QR Algorithms</a></li>
+                <li><a href="modelling/">QR Modelling</a></li>
               </ul>
             </body>
           </html>
