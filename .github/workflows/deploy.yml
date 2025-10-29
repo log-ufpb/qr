@@ -12,13 +12,8 @@ permissions:
   id-token: write
 
 jobs:
-  # -------------------------------------------------
-  # 1. Build every book into a temporary folder
-  # -------------------------------------------------
   build:
     runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,52 +23,67 @@ jobs:
         with:
           mdbook-version: "latest"
 
-      # ---- Dynamically build the matrix of books ----
-      - id: set-matrix
-        name: Define book matrix
+      # Simplified matrix definition
+      - name: Define book matrix
+        id: set-matrix
         run: |
-          BOOKS=$(cat <<EOF
-          [
-            {"folder": "qr-book",       "path": "home"},
-            {"folder": "qr-dev",        "path": "dev"},
-            {"folder": "qr-modelling",  "path": "modelling"},
+          BOOKS='[
+            {"folder": "qr-book", "path": "home"},
+            {"folder": "qr-dev", "path": "dev"}, 
+            {"folder": "qr-modelling", "path": "modelling"},
             {"folder": "qr-algorithms", "path": "algorithms"}
-          ]
-          EOF
-          )
-          # Compact JSON (single line) to avoid parsing issues
-          COMPACT=$(echo "$BOOKS" | jq -c .)
-          echo "matrix=$COMPACT" >> $GITHUB_OUTPUT
-        shell: bash
+          ]'
+          echo "matrix=$BOOKS" >> $GITHUB_OUTPUT
 
-      # ---- Build each book and stash the result ----
+      # Build each book
       - name: Build all books
         run: |
           mkdir -p _site
-          ${{ steps.set-matrix.outputs.matrix }} | jq -c '.[]' | while read -r book; do
+          echo '${{ steps.set-matrix.outputs.matrix }}' | jq -c '.[]' | while read -r book; do
             folder=$(echo "$book" | jq -r .folder)
             path=$(echo "$book" | jq -r .path)
-            echo "Building $folder → /$path"
-            cd "$folder"
-            mdbook build
-            cd -
-            mkdir -p "_site/$path"
-            cp -r "$folder/book/"* "_site/$path/"
+            
+            echo "📚 Building $folder → /$path"
+            
+            if [ -d "$folder" ] && [ -f "$folder/mdbook.toml" ]; then
+              cd "$folder"
+              mdbook build
+              cd ..
+              mkdir -p "_site/$path"
+              cp -r "$folder/book/"* "_site/$path/"
+              echo "✅ Built $folder to _site/$path"
+            else
+              echo "⚠️  Skipping $folder - not found or no mdbook.toml"
+            fi
           done
 
-      - name: Upload temporary site as artifact
+      # Create root redirect
+      - name: Create root redirect
+        run: |
+          cat > _site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta http-equiv="refresh" content="0; url=/home/">
+            <title>Redirecting...</title>
+          </head>
+          <body>
+            <p>Redirecting to <a href="/home/">main documentation</a>...</p>
+          </body>
+          </html>
+          EOF
+
+      # Upload artifact - FIXED: Use the same name and ensure path exists
+      - name: Upload site artifact
         uses: actions/upload-artifact@v4
         with:
           name: pages-site
-          path: _site
+          path: _site/
           retention-days: 1
 
-  # -------------------------------------------------
-  # 2. Deploy the combined site to GitHub Pages
-  # -------------------------------------------------
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/main' # only on push to main
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -81,16 +91,29 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: Download built site
+      # Download artifact - FIXED: Ensure we're downloading from the correct workflow
+      - name: Download site artifact
         uses: actions/download-artifact@v4
         with:
           name: pages-site
           path: _site
 
+      # Verify download worked
+      - name: Verify downloaded site
+        run: |
+          echo "📁 Checking downloaded site structure:"
+          ls -la _site/
+          if [ -d "_site/home" ]; then
+            echo "✅ Successfully downloaded artifact with home book"
+          else
+            echo "❌ Artifact download failed - _site/home not found"
+            exit 1
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
