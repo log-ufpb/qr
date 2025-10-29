@@ -1,0 +1,5 @@
+[book]
+authors = ["Guilherme Dantas"]
+language = "en"
+src = "src"
+title = "QR: Mathematical Modelling"
