@@ -2,8 +2,16 @@
 
 You don’t necessarily have to make direct changes to the code, sometimes just reaching out to the collaborators and sharing something that could be added is already a valuable contribution.
 
-However, if you’d like to contribute add new content, please follow the steps below:
+However, if you’d like to add new content yourself, please follow the steps below:
 
+### 0. What to do?
+
+At this moment, there are four QR's:
+
+- General:
+- Modelling: Mathematical modelling (`qr-modelling`)
+- Algorithms: Algorithms and Problem solving (`qr-algorithms`)
+- Dev: Software development (`qr-dev`)
 
 ### 1. Install [mdBook](https://rust-lang.github.io/mdBook/)
 
