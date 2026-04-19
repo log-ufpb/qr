@@ -1,0 +1,5 @@
+# BendersLib
+
+[BendersLib](https://benders.dev) is a Python library that supports a range of Benders decomposition variants, including Classical Benders Decomposition, Combinatorial Benders Decomposition, L-shaped Method, Integer L-shaped Method, Generalized Benders Decomposition, and Logic-based Benders Decomposition. 
+
+While BendersLib provides built-in implementations of these methods, it is designed to be extensible. Users can implement custom Benders decomposition methods by customizing subproblem solvers and cut generators, and defining callback functions for enhancement strategies. BendersLib is solver agnostic and has built-in interfaces for popular Mathematical Programming and Constraint Programming solvers. Its support for rapid prototyping and high extensibility are designed to meet the needs of both researchers and practitioners in Operations Research and related fields.

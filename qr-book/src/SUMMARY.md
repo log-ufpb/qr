@@ -17,6 +17,8 @@
 
 - [PyConcorde](./concorde/Pyconcorde.md)
 
+- [BendersLib](./benders/benderslib.md)
+
 <!-- Check if it is still valid -->
 - [Gurobi]()
   - [Shared installation](./gurobi/Shared-installation.md)
