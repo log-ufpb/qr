@@ -1,8 +1,6 @@
-# Duplicate Data
+# How to Deal with Duplicate Data
 
 Duplicate data refers to rows that are repeated partially or fully in a dataset. These duplicates can lead to biased analyses, incorrect statistics, and misleading results.
-
----
 
 ## What Is It?
 
@@ -23,6 +21,12 @@ Common causes of duplicate data:
 
 
 ## How to Find Duplicate Values?
+
+To check how often each duplicate appears:
+
+```python
+df[column_names].value_counts()
+```
 
 ### 1. Complete Duplicates
 
@@ -105,19 +109,3 @@ df_cleaned = df.groupby(by=column_names).agg(summaries).reset_index()
 | first\_name | last\_name | address     | height | weight |
 | ----------- | ---------- | ----------- | ------ | ------ |
 | John        | Doe        | 456 Elm Ave | 180    | 81.0   |
-
----
-
-## Best Practices
-
-* Always inspect duplicates **before** removing them.
-* Understand **why** duplicates occur — fixing the root cause is better than patching.
-* Consider if duplicates contain **additional information** worth preserving (e.g., timestamps, different measurements).
-
-## Bonus: Count of Duplicates
-
-To check how often each duplicate appears:
-
-```python
-df[column_names].value_counts()
-```
