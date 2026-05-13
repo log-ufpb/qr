@@ -2,8 +2,6 @@
 
 Out-of-range data refers to values that fall outside the expected or acceptable range for a given feature. These values can occur due to data entry errors, system glitches, or real but rare events. Handling such values appropriately is critical for ensuring robust and accurate models or analyses.
 
----
-
 ### 1. Dropping Data
 
 Removing rows that contain out-of-range values.
@@ -133,15 +131,3 @@ Apply transformations to reduce the effect of extreme values rather than removin
 ```python
 df['log_income'] = np.log1p(df['income'])  # log(1 + income)
 ```
-
----
-
-### Final Thoughts
-
-Choosing the right strategy depends on:
-
-* The proportion of out-of-range values.
-* Domain knowledge and business constraints.
-* The sensitivity of downstream models or analyses to extreme values.
-
-When in doubt, **visualize your data**, consult domain experts, and test different approaches to ensure robustness.
