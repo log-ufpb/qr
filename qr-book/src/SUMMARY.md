@@ -24,6 +24,8 @@
   - [Shared installation](./gurobi/Shared-installation.md)
   - [Free license](./gurobi/Free-license.md)
 
+- [ML under optimization lens](./ml-opt/ml-opt.md)
+
 - [Instance Space Analysis](./instance-space-analysis/Matilda.md)
 
 # Data Science
