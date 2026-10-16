@@ -17,3 +17,5 @@ The QR is also available as a skill, so assistants like Claude Code can consult 
 ```
 /plugin install log-qr --marketplace log-ufpb/qr
 ```
+
+On claude.ai, download [log-qr.zip](https://github.com/log-ufpb/qr/releases/download/skill/log-qr.zip) and upload it in **Settings → Capabilities → Skills**.
