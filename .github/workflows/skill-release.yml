@@ -1,0 +1,34 @@
+name: Release skill zip
+
+on:
+  push:
+    branches: [main]
+    paths: ["skills/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: skill-release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build zip
+        run: cd skills && zip -r ../log-qr.zip log-qr
+
+      # Rolling release: the tag always points at the latest skill, so the
+      # download URL never changes.
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete skill --cleanup-tag --yes || true
+          gh release create skill log-qr.zip \
+            --target "$GITHUB_SHA" \
+            --title "log-qr skill" \
+            --notes "Latest log-qr skill, built from ${GITHUB_SHA::7}. Upload log-qr.zip on claude.ai: Settings → Capabilities → Skills."
