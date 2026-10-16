@@ -2,9 +2,10 @@
 """Generate the log-qr skill references from the mdBooks.
 
 The mdBooks are the source of truth. This script copies every chapter listed
-in each book's SUMMARY.md into skills/log-qr/references/, strips what only
-matters for the rendered site (images, separators, mdBook math escapes), and
-rewrites the topic table in skills/log-qr/SKILL.md.
+in each book's SUMMARY.md into skills/log-qr/references/<section>/, strips
+what only matters for the rendered site (images, separators, mdBook math
+escapes), writes an INDEX.md per section, and rewrites the section table in
+skills/log-qr/SKILL.md. The two levels keep SKILL.md small as topics are added.
 
 Usage:
     python3 scripts/build_skill.py          # regenerate
@@ -63,23 +64,37 @@ def clean(text):
     return text.strip() + "\n"
 
 
+def slug(text):
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
 def build():
-    files, rows = {}, []
+    files, sections = {}, {}
     for book in BOOKS:
         for section, title, path in parse_summary(book):
             body = clean(path.read_text())
             if not body.strip():
                 continue
-            name = ref_name(book, path)
+            top, *sub = section.split(" / ")
+            name = f"{slug(top)}/{ref_name(book, path)}"
             assert name not in files, f"duplicate reference name {name}"
             files[name] = body
             heads = re.findall(r"^##\s+(.+?)\s*$", body, flags=re.M)
             heads = [h for h in heads if h not in NOISE]
             covers = ", ".join(heads[:8]) or "-"
-            rows.append(f"| {section} | {title} | `references/{name}` | {covers} |")
-    table = "\n".join(
-        ["| Section | Topic | File | Covers |", "|---|---|---|---|", *rows]
-    )
+            topic = " / ".join(sub + [title])
+            sections.setdefault(top, []).append((topic, name, covers))
+
+    rows = []
+    for top, topics in sections.items():
+        index = f"{slug(top)}/INDEX.md"
+        files[index] = "\n".join(
+            [f"# {top}", "", "| Topic | File | Covers |", "|---|---|---|"]
+            + [f"| {t} | `references/{n}` | {c} |" for t, n, c in topics]
+        ) + "\n"
+        names = ", ".join(t for t, _, _ in topics)
+        rows.append(f"| {top} | `references/{index}` | {names} |")
+    table = "\n".join(["| Section | Index | Topics |", "|---|---|---|", *rows])
     return files, table
 
 
@@ -91,20 +106,23 @@ def main():
     _, tail = rest.split(END)
     new_skill_md = f"{head}{BEGIN}\n{table}\n{END}{tail}"
 
-    current = {p.name: p.read_text() for p in REFS.glob("*.md")} if REFS.exists() else {}
+    current = {str(p.relative_to(REFS)): p.read_text() for p in REFS.rglob("*.md")}
     stale = current != files or skill_md != new_skill_md
     if check:
         if stale:
             sys.exit("skills/log-qr is out of date: run python3 scripts/build_skill.py")
         return
 
-    REFS.mkdir(parents=True, exist_ok=True)
     for name in current.keys() - files.keys():
         (REFS / name).unlink()
     for name, body in files.items():
+        (REFS / name).parent.mkdir(parents=True, exist_ok=True)
         (REFS / name).write_text(body)
+    for d in REFS.iterdir():
+        if d.is_dir() and not any(d.iterdir()):
+            d.rmdir()
     (SKILL / "SKILL.md").write_text(new_skill_md)
-    print(f"Wrote {len(files)} references to {REFS.relative_to(ROOT)}")
+    print(f"Wrote {len(files)} files to {REFS.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

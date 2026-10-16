@@ -48,7 +48,7 @@ The QR is also shipped as a skill for LLM assistants (`skills/log-qr`). Its `ref
 python3 scripts/build_skill.py
 ```
 
-and commit the result. CI fails if you forget. If you add a new topic, also mention it in the `description` of `skills/log-qr/SKILL.md`, so that assistants know when to use it.
+and commit the result. CI fails if you forget. The section table in `SKILL.md` and each section's `INDEX.md` are generated too, so there is nothing else to update. Don't add new topics to the skill's `description`: it is intentionally generic, so it never needs to change.
 
 ### 6. Commit and push your changes
 
