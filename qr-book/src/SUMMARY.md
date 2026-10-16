@@ -9,20 +9,21 @@
   - [Libraries](c++/Libraries.md)
   - [Reference materials](c++/Cpp-reference-materials.md)
 
-- [Git/Github]()
-  - [Git](./git-github/Git.md)
-  - [Github](./git-github/Github.md)
-
 # Optimization
 
-- [PyConcorde](./concorde/Pyconcorde.md)
+- [MIP]()
 
-- [BendersLib](./benders/benderslib.md)
+- [Constraint programming](./cp/cp.md)
 
-<!-- Check if it is still valid -->
-- [Gurobi]()
-  - [Shared installation](./gurobi/Shared-installation.md)
-  - [Free license](./gurobi/Free-license.md)
+- [Benders](./benders/benders.md)
+
+## Problems
+
+- [TSP](./tsp/tsp.md)
+
+- [Packing](./packing/packing.md)
+
+## Data
 
 - [ML under optimization lens](./ml-opt/ml-opt.md)
 
@@ -30,12 +31,7 @@
 
 # Data Science
 
-- [Datasets](./data-science/datasets/datasets.md)
-  - [Out of Range Data](./data-science/out_of_range_data.md)
-  - [Duplicate Values](./data-science/duplicate-values.md)
-
-- [Statistics](data-science/statistics/statistics.md)
-  - [Significance test](data-science/statistics/Significance-test.md)
+- [Significance test](data-science/statistics/Significance-test.md)
 
 # Mathematics
 
