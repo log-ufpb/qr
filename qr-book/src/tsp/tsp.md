@@ -1,18 +1,23 @@
+## TSPLIB95
+
+The [TSPLIB95](https://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) is the contains [instances](https://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/tspindex.html) and [optimal values](https://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/TSP-BEST.html) for the symmetric TSP. This instances follow the [TSPLIB File Format](https://oeclass.aua.gr/eclass/modules/document/file.php/310/3.%20%CE%91%CF%81%CF%87%CE%B5%CE%AF%CE%B1%20VRP%20-%20format.pdf), which can be read and written using python library [tsplib95](https://tsplib95.readthedocs.io/en/stable/pages/readme.html). You can also find data for the HCP, ATSP, SOP and CVRP. 
+
+
 ## Concorde Solver
 
-The [Concorde solver](https://www.math.uwaterloo.ca/tsp/concorde.html) is a state-of-the-art algorithm for efficiently solving the symmetric [Travelling Salesman Problem (TSP)](https://en.wikipedia.org/wiki/Travelling_salesman_problem).
+The [Concorde solver](https://www.math.uwaterloo.ca/tsp/concorde.html) is a state-of-the-art algorithm for efficiently solving the symmetric [Travelling Salesman Problem (TSP)](https://en.wikipedia.org/wiki/Travelling_salesman_problem) exactlty.
 
 
-## Python Wrapper
+### Python Wrapper
 
 A convenient way to use this solver is through the [PyConcorde](https://github.com/jvkersch/pyconcorde?tab=readme-ov-file) library, a Python wrapper that interfaces with Concorde.
 
 
-### Installation
+#### Installation
 
 Installation instructions are well-described in the [PyConcorde Documentation](https://github.com/jvkersch/pyconcorde?tab=readme-ov-file).
 
-### Loading a TSP problem
+#### Loading a TSP problem
 
 To load a TSP problem into the solver, provide a [TSP instance file](https://tsplib95.readthedocs.io/en/stable/). In this example, an existing instance, `a280.tsp`, is passed to the solver.
 
@@ -53,7 +58,7 @@ problem.save("example.tsp")
 
 To generate instances with alternative edge weight types such as EUC_2D or GEO, you can create TSP files by referring to the following [examples](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/).
 
-### Solving
+#### Solving
 
 To execute the algorithm, call the `.solve()` method:
 
