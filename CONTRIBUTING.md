@@ -40,7 +40,17 @@ git checkout -b <branch-name>
 Adding new content is straightforward, just follow the structure and conventions already used in the project.
 
 
-### 5. Commit and push your changes
+### 5. Update the skill
+
+The QR is also shipped as a skill for LLM assistants (`skills/log-qr`). Its `references/` are generated from the books, so after changing any chapter or `SUMMARY.md`, run:
+
+```bash
+python3 scripts/build_skill.py
+```
+
+and commit the result. CI fails if you forget. If you add a new topic, also mention it in the `description` of `skills/log-qr/SKILL.md`, so that assistants know when to use it.
+
+### 6. Commit and push your changes
 
 Once you’ve added your content, commit your changes and push the branch to the remote repository:
 
@@ -51,6 +61,6 @@ git push origin <branch-name>
 ```
 
 
-### 6. Create a Pull Request
+### 7. Create a Pull Request
 
 Open a Pull Request (PR) to propose your changes. Follow this [GitHub tutorial](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) if you’re not familiar with the process.
