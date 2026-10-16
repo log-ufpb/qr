@@ -1,0 +1,14 @@
+{
+  "name": "log-ufpb",
+  "owner": {
+    "name": "LOG-UFPB"
+  },
+  "description": "Skills from the Logistics and Optimization Group (LOG-UFPB).",
+  "plugins": [
+    {
+      "name": "log-qr",
+      "source": "./",
+      "description": "LOG-UFPB Quick Reference as a skill."
+    }
+  ]
+}

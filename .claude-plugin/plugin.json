@@ -1,0 +1,9 @@
+{
+  "name": "log-qr",
+  "description": "LOG-UFPB Quick Reference as a skill: curated tools, libraries and practices for optimization, data science, C++, LaTeX and git.",
+  "version": "1.0.0",
+  "author": { "name": "LOG-UFPB" },
+  "homepage": "https://log-ufpb.github.io/qr/",
+  "repository": "https://github.com/log-ufpb/qr",
+  "license": "MIT"
+}
